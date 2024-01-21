@@ -1,0 +1,20 @@
+{
+  "name": "alvar/evosport",
+  "description": "Sports material and nutrition E-Commerce store",
+  "type": "project",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Álvaro Hernández Colino",
+      "email": "alvarohcolino@gmail.com"
+    }
+  ],
+  "require": {},
+  "autoload": {
+    "psr-4": {
+      "Models\\": "./models",
+      "Controllers\\": "./controllers",
+      "MVC\\": "./"
+    }
+  }
+}
