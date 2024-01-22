@@ -19,12 +19,6 @@ class Router
 
     public function checkRoutes()
     {
-
-        // Protect routes
-        $protectedRoutes = [];
-
-        $auth = $_SESSION['login'] ?? null;
-
         $currentUrl = $_SERVER['PATH_INFO'] ?? '/';
         $method = $_SERVER['REQUEST_METHOD'];
 
