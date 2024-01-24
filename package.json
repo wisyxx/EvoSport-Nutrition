@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tailwindcss -i ./src/css/input.css -o ./public/build/css/app.css --watch"
+    "start": "tailwindcss -i ./src/css/input.css -o ./public/build/css/app.css --watch | gulp default"
   },
   "repository": {
     "type": "git",
