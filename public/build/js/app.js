@@ -1,0 +1,1 @@
+function startApp(){}document.addEventListener("DOMContentLoaded",()=>{startApp()});const menu=document.querySelector(".menu");function menuAnimation(){document.querySelectorAll(".menu > div").forEach(e=>{e.classList.toggle("active")})}menu.addEventListener("click",()=>menuAnimation());

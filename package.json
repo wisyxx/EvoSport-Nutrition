@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "tailwindcss -i ./src/css/input.css -o ./public/build/css/app.css --watch | gulp default"
+    "start": "gulp"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,19 @@
   },
   "homepage": "https://github.com/wisyxx/EvoSport-Nutrition#readme",
   "devDependencies": {
-    "tailwindcss": "^3.4.1"
+    "cssnano": "^4.1.10",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.1",
+    "gulp-cache": "^1.1.3",
+    "gulp-concat": "^2.6.1",
+    "gulp-imagemin": "^7.1.0",
+    "gulp-notify": "^3.2.0",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^5.0.0",
+    "gulp-sourcemaps": "^2.6.5",
+    "gulp-terser-js": "^5.2.2",
+    "gulp-webp": "^4.0.1",
+    "sass": "^1.41.1",
+    "terser": "^5.3.8"
   }
 }
