@@ -12,6 +12,7 @@ function menuAnimation() {
 
   menuBars.forEach((bar) => {
     bar.classList.toggle('active');
+    bar.classList.remove('not-active');
   });
 
   

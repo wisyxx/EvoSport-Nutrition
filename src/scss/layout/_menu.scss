@@ -11,6 +11,9 @@
 	&:last-of-type {
 		margin-bottom: 0;
 	}
+	&.not-active {
+		animation: none;
+	}
 }
 
 .bar-top {
