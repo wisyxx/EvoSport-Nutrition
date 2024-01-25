@@ -7,6 +7,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 2px;
+  background: v.$background;
 
   @include m.tablet {
     flex-direction: row;

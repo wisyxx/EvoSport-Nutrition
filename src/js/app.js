@@ -14,6 +14,10 @@ function menuAnimation() {
     bar.classList.toggle('active');
     bar.classList.remove('not-active');
   });
+  dropDownMenu();
+}
 
-  
+function dropDownMenu() {
+  const dropMenu = document.querySelector('.drop-menu');
+  dropMenu.classList.toggle('hidden');
 }

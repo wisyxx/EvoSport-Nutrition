@@ -1,15 +1,51 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
+@import 'keyframes';
+
 .menu {
   order: 2;
   margin: 30px 0;
+
   @include m.tablet {
     order: inherit;
-	margin: 0 0 0 40px;
+    margin: 0 0 0 40px;
   }
 }
 
+.drop-menu {
+  display: flex;
+  background: v.$secondary;
+  width: 100%;
+  height: auto;
+  padding: 20px;
+
+  position: absolute;
+  top: 90px;
+  left: 0;
+
+  opacity: 1;
+  transition: all 0.4s ease-in-out;
+
+  .drop-menu__link {
+    color: v.$text;
+    margin-right: 50px;
+    &:first-of-type {
+      margin-left: 20px;
+    }
+    &:last-of-type {
+      margin: 0;
+    }
+  }
+
+  &.hidden {
+    visibility: hidden;
+    background: v.$background;
+    opacity: 0;
+  }
+}
+
+/* ANIMATIONS */
 .bar-top,
 .bar-middle,
 .bar-bottom {
@@ -46,72 +82,5 @@
   }
   &.bar-bottom {
     animation: anim-bar-bottom 0.7s ease forwards;
-  }
-}
-
-@keyframes anim-bar-top {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(0, 10px, 0) rotate(0deg);
-  }
-  100% {
-    transform: translate3d(0, 10px, 0) rotate(45deg);
-  }
-}
-@keyframes anim-bar-top-rev {
-  0% {
-    transform: translate3d(0, 10px, 0) rotate(45deg);
-  }
-  50% {
-    transform: translate3d(0, 10px, 0) rotate(0deg);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-}
-
-@keyframes anim-bar-middle {
-  0% {
-    transform: scale(1);
-    opacity: 1;
-  }
-  100% {
-    transform: scale(0);
-    opacity: 0;
-  }
-}
-@keyframes anim-bar-middle-rev {
-  0% {
-    transform: scale(0);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
-
-@keyframes anim-bar-bottom {
-  0% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
-  }
-  50% {
-    transform: translate3d(0, -10px, 0) rotate(0deg);
-  }
-  100% {
-    transform: translate3d(0, -10px, 0) rotate(135deg);
-  }
-}
-@keyframes anim-bar-bottom-rev {
-  0% {
-    transform: translate3d(0, -10px, 0) rotate(135deg);
-  }
-  50% {
-    transform: translate3d(0, -10px, 0) rotate(0deg);
-  }
-  100% {
-    transform: translate3d(0, 0, 0) rotate(0deg);
   }
 }
