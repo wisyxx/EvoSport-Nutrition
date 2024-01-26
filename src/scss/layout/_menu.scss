@@ -28,6 +28,7 @@
   transition: all 0.4s ease-in-out;
 
   .drop-menu__link {
+    position: relative;
     color: v.$text;
     margin-right: 50px;
     &:first-of-type {
@@ -35,6 +36,29 @@
     }
     &:last-of-type {
       margin: 0;
+    }
+  }
+
+  /* Links hover animation */
+  .drop-menu__link {
+    &::before {
+      content: '';
+      display: block;
+      background: v.$background;
+      height: 3px;
+      width: 0;
+      position: absolute;
+      bottom: -1px;
+      overflow: hidden;
+      transition: all 0.3s;
+    }
+    transition: all 0.3s;
+    &:hover {
+      transform: scale(1.05);
+      &::before {
+        width: 100%;
+        overflow: hidden;
+      }
     }
   }
 
