@@ -1,0 +1,13 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.ads {
+  position: relative;
+}
+
+.ads__imgs {
+  height: 300px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}

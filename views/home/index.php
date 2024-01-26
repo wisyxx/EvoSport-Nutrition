@@ -12,7 +12,11 @@
     <a href="/" class="header__logo">
         <img src="build/img/EvoSportLogo.svg" alt="Companie logo">
     </a>
-        <img class="header__shopping-basket" src="build/img/shopping-basket.svg" alt="Shopping basket logo button">
+    <img class="header__shopping-basket" src="build/img/shopping-basket.svg" alt="Shopping basket logo button">
 </header>
+
+<section class="ads">
+    <div class="ads__imgs" style="background-image: url('build/img/suplement1.jpg');"></div>
+</section>
 
 <?php $script = '<script src="build/js/app.js"></script>'; ?>
