@@ -2,7 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   startApp();
 });
 
-function startApp() {
+async function startApp() {
+  await loadAdImages();
 }
 
 /* API */
@@ -36,3 +37,31 @@ function dropDownMenu() {
 }
 
 /* AD SLIDE SHOW */
+async function getAdImages() {
+  const imageFiles = await fetchAPI('http://localhost:3000/api/ad-images');
+  let imagesNames = [];
+
+  if (imagesNames.length !== 0) {
+    return imagesNames;
+  }
+
+  imageFiles.forEach((imageFile) => {
+    const { name } = imageFile;
+
+    imagesNames = [...imagesNames, name];
+  });
+
+  return imagesNames;
+}
+
+async function loadAdImages() {
+  const imagesNames = await getAdImages();
+  const adContainer = document.querySelector('.ads-container');
+
+  imagesNames.forEach((imageName) => {
+    const image = document.createElement('DIV');
+    image.classList.add('slide-image');
+    image.style.backgroundImage = `url('../build/img/${imageName}')`;
+    adContainer.appendChild(image);
+  });
+}
