@@ -22,8 +22,11 @@
   z-index: 5;
 
   position: absolute;
-  top: 90px;
+  top: 212px;
   left: 0;
+  @include m.tablet {
+    top: 90px;
+  }
 
   opacity: 1;
   transition: all 0.4s ease-in-out;

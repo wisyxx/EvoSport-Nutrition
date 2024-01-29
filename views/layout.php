@@ -9,13 +9,12 @@
 </head>
 
 <body>
-    <div>
-        <?php echo $content; ?>
-    </div>
+    <?php echo $content; ?>
 
     <?php
     // Conditional JS
     echo $script ?? '';
     ?>
 </body>
+
 </html>

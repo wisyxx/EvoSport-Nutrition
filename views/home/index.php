@@ -15,8 +15,22 @@
     <img class="header__shopping-basket" src="build/img/shopping-basket.svg" alt="Shopping basket logo button">
 </header>
 
-<section class="ads-container">
-    
+<section class="ads-container"></section>
+
+<section class="popular-products">
+    <h1 class="popular-products__title">Popular products</h1>
+
+    <div class="products-container">
+        <button type="button" class="arrow" id="arrow-left">
+            <img src="build/img/chevron-compact-left.svg" alt="Arrow left">
+        </button>
+
+        <div class="products"></div>
+
+        <button type="button" class="arrow" id="arrow-right">
+            <img src="build/img/chevron-compact-right.svg" alt="Arrow right">
+        </button>
+    </div>
 </section>
 
 <?php $script = '<script src="build/js/app.js"></script>'; ?>

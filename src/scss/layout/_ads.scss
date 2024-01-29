@@ -3,6 +3,7 @@
 
 .ads-container {
   position: relative;
+  height: 300px;
   z-index: 0;
 }
 
@@ -12,10 +13,10 @@
   background-position: center center;
   background-repeat: no-repeat;
   background-size: cover;
-  position: absolute;
   opacity: 0;
-  transition: all 0.4s;
+  position: absolute;
+  transition: all .4s;
   &.active {
-    opacity: 1;
+      opacity: 1;
   }
 }
