@@ -2,13 +2,11 @@
 
 namespace Controllers;
 
-use MVC\Router;
-
 class APIController
 {
-    public static function imagesAPI(Router $router)
+    public static function imagesAPI()
     {
-        $imagesDir = './build/img/';
+        $imagesDir = './build/img/ads/';
         $imagesFiles = glob($imagesDir . "*.{webp}", GLOB_BRACE);
         $imageData = [];
 

@@ -3,7 +3,8 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function startApp() {
-  await loadAdImages();
+  const images = await loadAdImages();
+  startImageRotation(images);
 }
 
 /* API */
@@ -57,11 +58,33 @@ async function getAdImages() {
 async function loadAdImages() {
   const imagesNames = await getAdImages();
   const adContainer = document.querySelector('.ads-container');
+  let images = [];
 
-  imagesNames.forEach((imageName) => {
+  imagesNames.forEach((imageName, index) => {
     const image = document.createElement('DIV');
     image.classList.add('slide-image');
-    image.style.backgroundImage = `url('../build/img/${imageName}')`;
+    image.style.backgroundImage = `url('../build/img/ads/${imageName}')`;
     adContainer.appendChild(image);
+    images.push(image);
+
+    if (index === 0) {
+      image.classList.add('active');
+    }
   });
+
+  return images;
+}
+
+function startImageRotation(images) {
+  let currentIndex = 0;
+
+  setInterval(() => {
+    images[currentIndex].classList.remove('active');
+    currentIndex = currentIndex + 1;
+    if (currentIndex >= images.length) {
+      currentIndex = 0;
+    }
+    images[currentIndex].classList.add('active');
+  }, 6000);
+  
 }
