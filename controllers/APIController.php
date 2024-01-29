@@ -20,4 +20,8 @@ class APIController
 
         echo json_encode($imageData);
     }
+    public static function productsAPI ()
+    {
+
+    }
 }
