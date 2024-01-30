@@ -12,5 +12,6 @@ $router->get('/', [LandingPageController::class, 'index']);
 
 /*======> API <======*/
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);
+$router->get('/api/products', [APIController::class, 'productsAPI']);
 
 $router->checkRoutes();

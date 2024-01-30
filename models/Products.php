@@ -1,6 +1,6 @@
 <?php
 
-namespace Model;
+namespace Models;
 
 use Models\ActiveRecord;
 
@@ -23,6 +23,4 @@ class Products extends ActiveRecord
         $this->price = $args['price'] ?? '';
         $this->image = $args['image'] ?? '';
     }
-
-    
 }

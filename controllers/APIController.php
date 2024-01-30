@@ -2,6 +2,8 @@
 
 namespace Controllers;
 
+use Models\Products;
+
 class APIController
 {
     public static function imagesAPI()
@@ -22,6 +24,7 @@ class APIController
     }
     public static function productsAPI ()
     {
-
+        $result = Products::get(10);
+        echo json_encode($result);
     }
 }
