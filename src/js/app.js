@@ -5,9 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
 async function startApp() {
   const images = await loadAdImages();
   startImageRotation(images);
+  await loadProducts();
 }
 
-/* API */
+/*======> API <======*/
 async function fetchAPI(url) {
   try {
     const response = await fetch(url);
@@ -18,7 +19,7 @@ async function fetchAPI(url) {
   }
 }
 
-/* MENU */
+/*======> MENU <======*/
 const menu = document.querySelector('.menu');
 menu.addEventListener('click', () => menuAnimation());
 
@@ -37,7 +38,7 @@ function dropDownMenu() {
   dropMenu.classList.toggle('hidden');
 }
 
-/* AD SLIDE SHOW */
+/*======> AD SLIDE SHOW <======*/
 async function getAdImages() {
   const imageFiles = await fetchAPI('http://localhost:3000/api/ad-images');
   let imagesNames = [];
@@ -86,5 +87,28 @@ function startImageRotation(images) {
     }
     images[currentIndex].classList.add('active');
   }, 6000);
+}
+
+/*======> LANDING PAGE POPULAR PRODUCTS <======*/
+async function loadProducts() {
+  const products = await fetchAPI('http://localhost:3000/api/products');
+  const productsContainer = document.querySelector('.products');
+
+  
+  products.forEach((product) => {
+    const { name, price } = product;
+
+    const productContainer = document.createElement('DIV');
+    productContainer.classList.add('product-container');
+
+    const productName = document.createElement('P');
+    productName.textContent = name;
+
+    const productPrice = document.createElement('P');
+    productPrice.textContent = price;
+
+    productContainer.append(productName, productPrice);
+    productsContainer.appendChild(productContainer);
+  });
   
 }
