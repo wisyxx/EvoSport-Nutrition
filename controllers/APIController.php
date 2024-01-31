@@ -6,14 +6,16 @@ use Models\Products;
 
 class APIController
 {
+    protected static $headerJSON = 'Content-Type: application/json; charset=utf-8';
+
     public static function imagesAPI()
     {
+        header(self::$headerJSON);
         $imagesDir = './build/img/ads/';
         $imagesFiles = glob($imagesDir . "*.{webp}", GLOB_BRACE);
         $imageData = [];
 
-        foreach($imagesFiles as $img)
-        {
+        foreach ($imagesFiles as $img) {
             $imageName = basename($img);
             $imageData[] = [
                 'name' => $imageName
@@ -22,9 +24,10 @@ class APIController
 
         echo json_encode($imageData);
     }
-    
-    public static function productsAPI ()
+
+    public static function productsAPI()
     {
+        header(self::$headerJSON);
         $result = Products::get(10);
         echo json_encode($result);
     }
