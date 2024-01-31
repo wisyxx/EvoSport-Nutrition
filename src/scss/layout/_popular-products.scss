@@ -2,14 +2,17 @@
 @use '../base/mixins' as m;
 
 .popular-products__title {
-    margin: 30px;
+  margin: 30px;
 }
 .products-container {
-    display: flex;
-    justify-content: space-between;
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
 }
 .arrow {
-    background: none;
-    border: none;
-    cursor: pointer;
+  background: none;
+  border: none;
+  cursor: pointer;
 }

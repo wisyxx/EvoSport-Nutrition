@@ -6,6 +6,7 @@ async function startApp() {
   const images = await loadAdImages();
   startImageRotation(images);
   await loadProducts();
+  popularProductsSlider();
 }
 
 /*======> API <======*/
@@ -89,26 +90,43 @@ function startImageRotation(images) {
   }, 6000);
 }
 
-/*======> LANDING PAGE POPULAR PRODUCTS <======*/
+/*======> PRODUCTS API <======*/
 async function loadProducts() {
   const products = await fetchAPI('http://localhost:3000/api/products');
   const productsContainer = document.querySelector('.products');
 
-  
   products.forEach((product) => {
-    const { name, price } = product;
+    const { name, price, image } = product;
 
     const productContainer = document.createElement('DIV');
     productContainer.classList.add('product-container');
 
     const productName = document.createElement('P');
+    productName.classList.add('product-name');
     productName.textContent = name;
 
     const productPrice = document.createElement('P');
-    productPrice.textContent = price;
+    productPrice.classList.add('product-price');
+    productPrice.textContent = `${price}€`;
 
-    productContainer.append(productName, productPrice);
+    const productImage = document.createElement('IMG');
+    productImage.classList.add('product-image');
+    productImage.setAttribute('src', `build/img/products/${image}`);
+
+    productContainer.append(productImage, productName, productPrice);
     productsContainer.appendChild(productContainer);
   });
-  
 }
+
+function popularProductsSlider() {
+  const left = document.querySelector('#arrow-left');
+  const right = document.querySelector('#arrow-left');
+
+  left.addEventListener('click', () => {
+    
+  });
+  right.addEventListener('click', () => {
+    
+  });
+}
+

@@ -3,12 +3,42 @@
 
 .products {
   display: flex;
-  justify-content: center;
-  gap: 10px;
+  align-items: center;
+  gap: 40px;
   overflow: hidden;
+  position: relative;
 }
+
 .product-container {
-    flex: 0 0 25%;
-    text-align: center;
-    
+  display: grid;
+  place-content: center;
+  text-align: left;
+  padding: 20px;
+  border-radius: 26px;
+  background: lighten(v.$primary, 10);
+
+  .product-name,
+  .product-price {
+    color: v.$background;
+  }
+
+  .product-price {
+    font-weight: bold;
+    margin: 0;
+  }
+  .product-name {
+    margin: 24px 0 10px 0;
+  }
+
+  .product-image {
+    width: 175px;
+    height: 175px;
+    object-fit: cover;
+    border-radius: 6px;
+
+    @include m.tablet {
+      width: 200px;
+      height: 200px;
+    }
+  }
 }
