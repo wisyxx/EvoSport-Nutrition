@@ -118,15 +118,47 @@ async function loadProducts() {
   });
 }
 
+// TO-DO: Fix scroll edge case
 function popularProductsSlider() {
   const left = document.querySelector('#arrow-left');
-  const right = document.querySelector('#arrow-left');
+  const right = document.querySelector('#arrow-right');
+
+  const productsContainer = document.querySelector('.products');
+
+  const scrollRightEdge =
+    productsContainer.scrollWidth - productsContainer.clientWidth;
+
+  let scrollLeftArrows = productsContainer.scrollLeft;
+
+  right.addEventListener('click', () => {
+    scrollLeftArrows += 255;
+    if (scrollLeftArrows >= scrollRightEdge) {
+      scrollLeftArrows = scrollRightEdge;
+    }
+    productsContainer.scrollLeft = scrollLeftArrows;
+  });
 
   left.addEventListener('click', () => {
-    
+    scrollLeftArrows -= 255;
+    if (scrollLeftArrows <= 0) {
+      scrollLeftArrows = 0;
+    }
+    productsContainer.scrollLeft = scrollLeftArrows;
   });
-  right.addEventListener('click', () => {
-    
+
+  productsContainer.addEventListener('scroll', () => {
+    const scrollLeft = Math.ceil(productsContainer.scrollLeft);
+
+    if (scrollLeft >= scrollRightEdge) {
+      right.style.visibility = 'hidden';
+    } else if (scrollLeft < scrollRightEdge) {
+      right.style.visibility = 'visible';
+    }
+
+    if (scrollLeft === 0) {
+      left.style.visibility = 'hidden';
+    } else if (scrollLeft > 0) {
+      left.style.visibility = 'visible';
+    }
   });
 }
-
