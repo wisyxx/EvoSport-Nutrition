@@ -1,0 +1,20 @@
+@use '../base/variables' as v;
+
+.about__title {
+  margin: 30px;
+}
+.about__content {
+  background: darken(v.$secondary, 8);
+  margin-bottom: 40px;
+  padding: 10px;
+  height: 150px;
+  display: grid;
+  place-content: center;
+  box-shadow: 0px 0px 30px 3px transparentize(v.$primary, .5);
+
+  .about__paragraph {
+    margin: 0;
+    font-size: 24px;
+    font-weight: bold;
+  }
+}

@@ -33,4 +33,11 @@
     </div>
 </section>
 
+<section class="about">
+    <h1 class="about__title">About</h1>
+    <div class="about__content">
+        <p class="about__paragraph">Some convincing sentence</p>
+    </div>
+</section>
+
 <?php $script = '<script src="build/js/app.js"></script>'; ?>
