@@ -9,12 +9,19 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 40px;
+  margin: 0 20px 40px 20px;
+  @include m.movile {
+    margin: 0 0 40px 0;
+  }
 }
 .arrow {
   background: none;
   border: none;
   cursor: pointer;
+  display: none;
+  @include m.movile {
+    display: block;
+  }
 
   &#arrow-left {
     visibility: hidden;

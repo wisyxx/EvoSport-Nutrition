@@ -4,7 +4,7 @@
 .products {
   display: flex;
   align-items: center;
-  gap: 40px;
+  gap: 30px;
   overflow: auto;
   scrollbar-width: none;
   scroll-behavior: smooth;
@@ -15,17 +15,23 @@
   display: grid;
   place-content: center;
   text-align: left;
-  padding: 20px;
+  padding: 25px;
   border-radius: 26px;
   background: lighten(v.$primary, 10);
+  transition: all .3s;
+  scale: 0.95;
 
+  &:hover {
+    scale: 1;
+  }
   .product-name,
   .product-price {
+    font-weight: bold;
     color: v.$background;
   }
 
   .product-price {
-    font-weight: bold;
+    color: v.$secondary;
     margin: 0;
   }
   .product-name {

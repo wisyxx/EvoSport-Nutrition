@@ -131,7 +131,7 @@ function popularProductsSlider() {
   let scrollLeftArrows = productsContainer.scrollLeft;
 
   right.addEventListener('click', () => {
-    scrollLeftArrows += 255;
+    scrollLeftArrows += 255.75;
     if (scrollLeftArrows >= scrollRightEdge) {
       scrollLeftArrows = scrollRightEdge;
     }
@@ -139,7 +139,7 @@ function popularProductsSlider() {
   });
 
   left.addEventListener('click', () => {
-    scrollLeftArrows -= 255;
+    scrollLeftArrows -= 255.75;
     if (scrollLeftArrows <= 0) {
       scrollLeftArrows = 0;
     }
