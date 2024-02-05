@@ -1,5 +1,9 @@
-
-<center>![Logo](public/build/img/EvoSportLogo.svg)</center>
+<img src="public/build/img/EvoSportLogo.svg" 
+        alt="logo" 
+        width="1000" 
+        height="auto" 
+        style="display: block; margin: 0 auto" 
+  />
 
 
 # EvoSport Nutrition
@@ -8,9 +12,7 @@ EvoSport Nutrition is a full-stack E-Commerce store specializing in sports goods
 
 
 ## Screenshots
-
-![Landing page](screenshots/landing-page-desktop.png)
-![Landing page](screenshots/landing-page-mobile.png)
+<img src="screenshots/landing-page-desktop.png" width="770px" height="auto"> <img src="screenshots/landing-page-mobile.png" width="200px" height="auto">
 
 
 ## API Reference
@@ -64,4 +66,5 @@ Start the server
   cd public
   php -S localhost:3000
 ```
+---
 [![MIT License](https://img.shields.io/badge/License-MIT-green.svg)](https://choosealicense.com/licenses/mit/)
