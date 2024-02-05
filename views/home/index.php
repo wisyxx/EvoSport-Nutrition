@@ -3,6 +3,7 @@
         <div class="bar-top not-active"></div>
         <div class="bar-middle not-active"></div>
         <div class="bar-bottom not-active"></div>
+
         <section class="drop-menu hidden">
             <a href="/products" class="drop-menu__link">All products</a>
             <a href="/account" class="drop-menu__link">Your account</a>
@@ -45,6 +46,7 @@
         </svg>
         <h2>Free & fast delivery service</h2>
     </div>
+
     <div class="info__content quality">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-shield-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -53,6 +55,7 @@
         </svg>
         <h2>High quality products</h2>
     </div>
+
     <div class="info__content sustainable">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-leaf" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -61,6 +64,7 @@
         </svg>
         <h2>Sustainable</h2>
     </div>
+
     <div class="info__content material-quality">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-discount-check" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
             <path stroke="none" d="M0 0h24v24H0z" fill="none" />
@@ -76,6 +80,14 @@
         <p class="about__paragraph">We are dedicated to inspiring and empowering your physical well-being through quality supplements and sporting goods. Your success is our mission.</p>
     </div>
 </section>
+
+<footer class="footer">
+    <a href="/" class="footer__logo">
+        <img loading="lazy" src="build/img/EvoSportLogo.svg" alt="Companie logo">
+    </a>
+
+    <p>All rights reserved EvoSport Nutrition 2024 &#169;</p>
+</footer>
 
 
 <?php $script = '<script src="build/js/app.js"></script>'; ?>

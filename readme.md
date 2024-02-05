@@ -54,6 +54,12 @@ Install dev dependencies
   npm install -D
 ```
 
+Set up composer
+
+```bash
+  composer update
+```
+
 Run gulp tasks
 
 ```bash

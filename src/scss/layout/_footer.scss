@@ -1,0 +1,22 @@
+@use '../base/variables' as v;
+
+.footer {
+    background: lighten(v.$primary, 15);
+    height: 200px;
+    padding: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    position: relative;
+    
+    .footer__logo {
+        position: absolute;
+        left: 15px;
+        top: 15px;
+    }
+
+    p {
+        text-align: center;
+        margin: 0 0 10px 0;
+    }
+}
