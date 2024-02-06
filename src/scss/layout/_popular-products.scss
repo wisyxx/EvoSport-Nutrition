@@ -4,13 +4,13 @@
 .popular-products__title {
   margin: 30px;
 }
-.products-container {
+.products-slider-container {
   position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin: 0 20px 40px 20px;
-  @include m.movile {
+  @include m.tablet {
     margin: 0 0 40px 0;
   }
 }
@@ -19,7 +19,7 @@
   border: none;
   cursor: pointer;
   display: none;
-  @include m.movile {
+  @include m.tablet {
     display: block;
   }
 

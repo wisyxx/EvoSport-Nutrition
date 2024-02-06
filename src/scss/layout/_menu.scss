@@ -7,7 +7,7 @@
   order: 2;
   margin: 30px 0;
 
-  @include m.movile {
+  @include m.tablet {
     order: inherit;
     margin: 0 0 0 40px;
   }
@@ -24,7 +24,7 @@
   position: absolute;
   top: 212px;
   left: 0;
-  @include m.movile {
+  @include m.tablet {
     top: 90px;
   }
 

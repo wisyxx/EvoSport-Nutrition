@@ -1,32 +1,17 @@
-<header class="header">
-    <div class="menu">
-        <div class="bar-top not-active"></div>
-        <div class="bar-middle not-active"></div>
-        <div class="bar-bottom not-active"></div>
+<?php include_once __DIR__ . '/../templates/header.php' ?>
 
-        <section class="drop-menu hidden">
-            <a href="/products" class="drop-menu__link">All products</a>
-            <a href="/account" class="drop-menu__link">Your account</a>
-            <a href="/log-out" class="drop-menu__link">Log out</a>
-        </section>
-    </div>
-    <a href="/" class="header__logo">
-        <img loading="lazy" src="build/img/EvoSportLogo.svg" alt="Companie logo">
-    </a>
-    <img loading="lazy" class="header__shopping-basket" src="build/img/shopping-basket.svg" alt="Shopping basket logo button">
-</header>
 
 <section class="ads-container"></section>
 
 <main class="popular-products">
-    <h1 class="popular-products__title">Popular products</h1>
+    <h1 class="popular-products__title title">Popular products</h1>
 
-    <div class="products-container">
+    <div class="products-slider-container">
         <button type="button" class="arrow" id="arrow-left">
             <img loading="lazy" src="build/img/chevron-compact-left.svg" alt="Arrow left">
         </button>
 
-        <div class="products"></div>
+        <div class="popular-products-slider"></div>
 
         <button type="button" class="arrow" id="arrow-right">
             <img loading="lazy" src="build/img/chevron-compact-right.svg" alt="Arrow right">
@@ -34,7 +19,7 @@
     </div>
 </main>
 
-<h1 class="about__title">About</h1>
+<h1 class="title">About</h1>
 <section class="info">
     <div class="info__content delivery">
         <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-truck-delivery" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">

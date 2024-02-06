@@ -1,10 +1,10 @@
-@mixin movile {
+@mixin tablet {
   @media (min-width: 600px) {
     @content;
   }
 }
-@mixin tablet {
-  @media (min-width: 769px) {
+@mixin small-desktop {
+  @media (min-width: 800px) {
     @content;
   }
 }
@@ -13,6 +13,7 @@
     @content;
   }
 }
+
 @mixin gridCols($cols, $spacing) {
   display: grid;
   grid-template-columns: repeat($cols, 1fr);

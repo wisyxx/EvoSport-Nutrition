@@ -5,8 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
 async function startApp() {
   const images = await loadAdImages();
   startImageRotation(images);
-  await loadProducts();
+
+  await loadPopularProducts();
   popularProductsSlider();
+
+  await loadProducts();
 }
 
 /*======> API <======*/
@@ -60,6 +63,11 @@ async function getAdImages() {
 async function loadAdImages() {
   const imagesNames = await getAdImages();
   const adContainer = document.querySelector('.ads-container');
+
+  if (!adContainer) {
+    return;
+  }
+
   let images = [];
 
   imagesNames.forEach((imageName, index) => {
@@ -78,6 +86,10 @@ async function loadAdImages() {
 }
 
 function startImageRotation(images) {
+  if (images === undefined) {
+    return;
+  }
+
   let currentIndex = 0;
 
   setInterval(() => {
@@ -91,14 +103,22 @@ function startImageRotation(images) {
 }
 
 /*======> PRODUCTS API <======*/
-async function loadProducts() {
-  const products = await fetchAPI('http://localhost:3000/api/products');
-  const productsContainer = document.querySelector('.products');
+
+/* Popular products */
+async function loadPopularProducts() {
+  const products = await fetchAPI('http://localhost:3000/api/popular-products');
+
+  const productsContainer = document.querySelector('.popular-products-slider');
+
+  if (!productsContainer) {
+    return;
+  }
 
   products.forEach((product) => {
-    const { name, price, image } = product;
+    const { id, name, price, image } = product;
 
-    const productContainer = document.createElement('DIV');
+    const productContainer = document.createElement('A');
+    productContainer.setAttribute('href', `/product?id=${id}`);
     productContainer.classList.add('product-container');
 
     const productName = document.createElement('P');
@@ -118,12 +138,15 @@ async function loadProducts() {
   });
 }
 
-// TO-DO: Fix scroll edge case
 function popularProductsSlider() {
   const left = document.querySelector('#arrow-left');
   const right = document.querySelector('#arrow-right');
 
-  const productsContainer = document.querySelector('.products');
+  const productsContainer = document.querySelector('.popular-products-slider');
+
+  if (!productsContainer) {
+    return;
+  }
 
   const scrollRightEdge =
     productsContainer.scrollWidth - productsContainer.clientWidth;
@@ -160,5 +183,39 @@ function popularProductsSlider() {
     } else if (scrollLeft > 0) {
       left.style.visibility = 'visible';
     }
+  });
+}
+
+/* Products */
+async function loadProducts() {
+  const products = await fetchAPI('http://localhost:3000/api/products');
+
+  const productsContainer = document.querySelector('.products');
+
+  if (!productsContainer) {
+    return;
+  }
+
+  products.forEach((product) => {
+    const {id, name, price, image } = product;
+
+    const productContainer = document.createElement('A');
+    productContainer.setAttribute('href', `/product?id=${id}`);
+    productContainer.classList.add('product-container');
+
+    const productName = document.createElement('P');
+    productName.classList.add('product-name');
+    productName.textContent = name;
+
+    const productPrice = document.createElement('P');
+    productPrice.classList.add('product-price');
+    productPrice.textContent = `${price}€`;
+
+    const productImage = document.createElement('IMG');
+    productImage.classList.add('product-image');
+    productImage.setAttribute('src', `build/img/products/${image}`);
+
+    productContainer.append(productImage, productName, productPrice);
+    productsContainer.appendChild(productContainer);
   });
 }

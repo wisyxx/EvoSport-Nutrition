@@ -1,0 +1,20 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.products-container {
+  display: grid;
+  place-content: center;
+}
+.products {
+  display: grid;
+  @include m.gridCols(1, 10px);
+  @include m.tablet {
+    @include m.gridCols(2, 10px);
+  }
+  @include m.small-desktop {
+    @include m.gridCols(3, 20px);
+  }
+  @include m.desktop {
+    @include m.gridCols(4, 20px);
+  }
+}

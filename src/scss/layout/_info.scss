@@ -4,12 +4,14 @@
 .info {
   @include m.gridCols(1, 0);
   place-content: center;
-  
-  @include m.movile {
-      @include m.gridCols(2, 20px);
-    }
-    @include m.tablet {
-      @include m.gridCols(4, 20px);
+
+  @include m.gridCols(1, 20px);
+
+  @include m.tablet {
+    @include m.gridCols(2, 20px);
+  }
+  @include m.small-desktop {
+    @include m.gridCols(4, 20px);
   }
   padding: 40px 0 5px 0;
   background: v.$primary;

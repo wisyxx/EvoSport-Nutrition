@@ -25,10 +25,16 @@ class APIController
         echo json_encode($imageData);
     }
 
-    public static function productsAPI()
+    public static function popularProductsAPI()
     {
         header(self::$headerJSON);
         $result = Products::get(10);
+        echo json_encode($result);
+    }
+    public static function productsAPI()
+    {
+        header(self::$headerJSON);
+        $result = Products::all();
         echo json_encode($result);
     }
 }
