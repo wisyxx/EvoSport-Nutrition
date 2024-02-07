@@ -75,4 +75,4 @@
 </footer>
 
 
-<?php $script = '<script src="build/js/app.js"></script>'; ?>
+<?php $script = '<script type="module" src="build/js/landingPage.js"></script>'; ?>

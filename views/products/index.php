@@ -7,4 +7,4 @@
     <div class="products"></div>
 </main>
 
-<?php $script = '<script src="build/js/app.js"></script>'; ?>
+<?php $script = '<script type="module" src="build/js/products.js"></script>'; ?>
