@@ -34,7 +34,9 @@ class APIController
     public static function productsAPI()
     {
         header(self::$headerJSON);
+        $page = $_GET['page'] ?? null;
         $result = Products::all();
-        echo json_encode($result);
+        $products = array_chunk($result, 10);
+        echo json_encode(['products' => $products[$page - 1], 'productsCount' => count($result)]);
     }
 }
