@@ -52,6 +52,7 @@ async function loadProducts(page) {
     const totalPages = Math.ceil(totalCount / productsPerPage);
     for (let i = 1; i <= totalPages; i++) {
       const pageButton = document.createElement('button');
+      pageButton.classList.add('pagination__button');
       pageButton.textContent = i;
       pageButton.addEventListener('click', () => {
         loadProducts(i); // Cargar los productos de la página correspondiente al hacer clic en el botón
@@ -60,7 +61,7 @@ async function loadProducts(page) {
     }
 
     document
-      .querySelector('.products-container')
+      .querySelector('.search')
       .appendChild(paginationContainer);
   }
 }

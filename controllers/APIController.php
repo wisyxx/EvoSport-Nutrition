@@ -31,6 +31,7 @@ class APIController
         $result = Products::get(10);
         echo json_encode($result);
     }
+    
     public static function productsAPI()
     {
         header(self::$headerJSON);
