@@ -15,6 +15,7 @@ $router->get('/', [LandingPageController::class, 'index']);
 
 /*======> PRODUCTS <======*/
 $router->get('/products', [ProductsController::class, 'index']);
+$router->get('/product', [ProductsController::class, 'product']);
 
 /*======> API <======*/
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);

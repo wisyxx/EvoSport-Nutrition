@@ -32,7 +32,16 @@ class ActiveRecord
 
         return $result;
     }
+    public static function find($id)
+    {
+        $query = "SELECT * FROM ";
+        $query .= static::$table;
+        $query .= " WHERE id = ";
+        $query .= $id;
+        $result = static::queryDB($query);
 
+        return array_shift($result);
+    }
     protected static function createObject($record)
     {
         $obj = new static;
