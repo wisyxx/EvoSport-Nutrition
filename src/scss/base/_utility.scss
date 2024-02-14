@@ -1,3 +1,19 @@
+@use '../base/variables' as v;
+
 .title {
   margin: 30px;
+}
+
+.button {
+  background: v.$secondary;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  transition: all .3s;
+  cursor: pointer;
+  
+  &:hover {
+    background: darken(v.$secondary, 8);
+    box-shadow: 0px 0px 24px 0 darken(v.$secondary, 8);
+  }
 }
