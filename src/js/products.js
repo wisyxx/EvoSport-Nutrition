@@ -5,21 +5,18 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 async function startApp() {
-  await loadProducts(1); // Cargar la primera página de productos al inicio
+  await loadProducts(); // Cargar la primera página de productos al inicio
 }
 
 /* Products */
-async function loadProducts(page) {
-  const productsPerPage = 10; // Número de productos por página
-
+async function loadProducts(page = 1) {
   const productsResult = await fetchAPI(
+    // PHP: Controllers/APIController::productsAPI();
     `http://localhost:3000/api/products?page=${page}`
   );
-  console.log(productsResult);
   const { products, productsCount: totalCount } = productsResult;
-  console.log(productsResult.productsCount);
   const productsContainer = document.querySelector('.products');
-  productsContainer.innerHTML = ''; // Limpiar el contenedor antes de cargar nuevos productos
+  productsContainer.innerHTML = ''; // Clean the container before loading the products
 
   products.forEach((product) => {
     const { id, name, price, image } = product;
@@ -44,24 +41,41 @@ async function loadProducts(page) {
     productsContainer.appendChild(productContainer);
   });
 
-  // Agregar controles de paginación
+  // Pagination controllers
+  pagination(totalCount, page);
+}
+
+function pagination(productCount, page) {
+  const productsPerPage = 10;
+  const totalCount = productCount;
+
   if (!document.querySelector('.pagination')) {
     const paginationContainer = document.createElement('DIV');
     paginationContainer.classList.add('pagination');
+    document.querySelector('.search').appendChild(paginationContainer);
+  }
 
-    const totalPages = Math.ceil(totalCount / productsPerPage);
-    for (let i = 1; i <= totalPages; i++) {
+  const totalPages = Math.ceil(totalCount / productsPerPage);
+  const paginationContainer = document.querySelector('.pagination');
+
+  // Prevent deleting page buttons
+  if (page < totalPages && page !== totalPages - 1 && page !== totalPages - 2) {
+    paginationContainer.innerHTML = '';
+  } else {
+    return;
+  }
+
+  for (let i = page; i <= page + 3; i++) {
+    if (i > totalPages) {
+      return;
+    } else {
       const pageButton = document.createElement('button');
       pageButton.classList.add('pagination__button');
       pageButton.textContent = i;
       pageButton.addEventListener('click', () => {
-        loadProducts(i); // Cargar los productos de la página correspondiente al hacer clic en el botón
+        loadProducts(i);
       });
-      paginationContainer.appendChild(pageButton);
+      paginationContainer.append(pageButton);
     }
-
-    document
-      .querySelector('.search')
-      .appendChild(paginationContainer);
   }
 }
