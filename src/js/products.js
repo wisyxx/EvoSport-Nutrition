@@ -46,6 +46,7 @@ async function loadProducts(page = 1) {
 }
 
 function pagination(productCount, page) {
+  let currentPages = [];
   const productsPerPage = 10;
   const totalCount = productCount;
 
@@ -58,22 +59,28 @@ function pagination(productCount, page) {
   const totalPages = Math.ceil(totalCount / productsPerPage);
   const paginationContainer = document.querySelector('.pagination');
 
-  // Prevent deleting page buttons
+  // Prevent deleting page buttons when clicking the last ones
   if (page < totalPages && page !== totalPages - 1 && page !== totalPages - 2) {
     paginationContainer.innerHTML = '';
   } else {
-    return;
+    return; // Prevents creating last page duplicates
   }
 
   for (let i = page; i <= page + 3; i++) {
     if (i > totalPages) {
-      return;
+      return; // Prevents creating more pages than necesary
     } else {
+      currentPages.push(i);
       const pageButton = document.createElement('button');
       pageButton.classList.add('pagination__button');
       pageButton.textContent = i;
-      pageButton.addEventListener('click', () => {
-        loadProducts(i);
+      pageButton.addEventListener('click', (e) => {
+        // Go backwards
+        if (parseInt(e.target.innerHTML) === currentPages[0]) {
+          page < 4 ? loadProducts(1) : loadProducts(currentPages[0] - 3);
+        } else {
+          loadProducts(i); // Go forward
+        }
       });
       paginationContainer.append(pageButton);
     }
