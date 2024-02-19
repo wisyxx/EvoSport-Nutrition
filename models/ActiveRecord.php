@@ -18,7 +18,17 @@ class ActiveRecord
     {
         return static::$errors;
     }
+    public static function setAlert($type, $message)
+    {
+        static::$errors[$type][] = $message;
+    }
 
+    public static function where($column, $value)
+    {
+        $query = "SELECT * FROM " . static::$table  . " WHERE $column = '$value'";
+        $result = self::queryDB($query);
+        return array_shift($result);
+    }
     public static function get($limit)
     {
         $query = "SELECT * FROM ";

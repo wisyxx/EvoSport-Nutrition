@@ -35,4 +35,14 @@ class User extends ActiveRecord
 
         return static::$errors;
     }
+
+    public function validatePassword($password)
+    {
+        $result = password_verify($this->password, $password);
+        if ($result) {
+            return true;
+        } else {
+            self::$errors['error'][] = 'Incorrect password';
+        }
+    }
 }
