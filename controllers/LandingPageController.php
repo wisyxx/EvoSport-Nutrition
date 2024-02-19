@@ -9,6 +9,8 @@ class LandingPageController extends ActiveRecord
 {
     public static function index(Router $router)
     {
+        session_start();
+
         $router->render('home/index', []);
     }
 }

@@ -13,5 +13,16 @@
     <a href="/" class="header__logo">
         <img loading="lazy" src="build/img/EvoSportLogo.svg" alt="Companie logo">
     </a>
-    <img loading="lazy" class="header__shopping-basket" src="build/img/shopping-basket.svg" alt="Shopping basket logo button">
+    <div class="actions">
+        <a href="/shopping-basket">
+            <img loading="lazy" class="header__logo" src="build/img/shopping-basket.svg" alt="Shopping basket logo button">
+        </a>
+        <?php if (!empty($_SESSION['name'])) : ?>
+            <a href="/account">
+                <img loading="lazy" class="header__logo" src="build/img/user-logo.svg" alt="Shopping basket logo button">
+            </a>
+        <?php else : ?>
+            <a href="/login" class="login button">Log in</a>
+        <?php endif; ?>
+    </div>
 </header>
