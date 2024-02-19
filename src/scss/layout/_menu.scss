@@ -6,6 +6,7 @@
 .menu {
   order: 2;
   margin: 30px 0;
+  z-index: 5;
 
   @include m.tablet {
     order: inherit;
@@ -19,11 +20,12 @@
   width: 100%;
   height: auto;
   padding: 20px;
-  z-index: 5;
+  box-shadow: 0px 5px 20px 0px v.$secondary;
 
   position: absolute;
   top: 212px;
   left: 0;
+
   @include m.tablet {
     top: 90px;
   }
