@@ -66,6 +66,11 @@
     </div>
 </section>
 
+<section class="contact">
+    <h2>Any doubts? <a href="/contact" class="link">Contact us</a></h2>
+    <div class="overlay"></div>
+</section>
+
 <footer class="footer">
     <a href="/" class="footer__logo">
         <img loading="lazy" src="build/img/EvoSportLogo.svg" alt="Companie logo">
