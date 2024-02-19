@@ -22,7 +22,7 @@
                 <img loading="lazy" class="header__logo" src="build/img/user-logo.svg" alt="Shopping basket logo button">
             </a>
         <?php else : ?>
-            <a href="/login" class="login button">Log in</a>
+            <a href="/login" class="login-button button">Log in</a>
         <?php endif; ?>
     </div>
 </header>
