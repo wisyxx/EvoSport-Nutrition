@@ -10,6 +10,9 @@
     </div>
     <form class="form" action="/login" method="POST">
         <h1 class="form__title">Log in</h1>
+        
+        <?php include_once __DIR__ . '/../templates/alerts.php' ?>
+
         <div class="field">
             <label for="email">Email</label>
             <input type="email" name="email" id="email" placeholder="You'r email">

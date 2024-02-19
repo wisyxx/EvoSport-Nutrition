@@ -7,10 +7,16 @@ class ActiveRecord
     protected static $db;
     protected static $table = '';
     protected static $DBColumns = [];
+    protected static $errors = [];
 
     public static function setDB($database)
     {
         self::$db = $database;
+    }
+
+    public static function getAlerts()
+    {
+        return static::$errors;
     }
 
     public static function get($limit)

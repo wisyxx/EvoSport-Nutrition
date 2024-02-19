@@ -1,0 +1,19 @@
+@use '../base/variables' as v;
+
+.alert {
+  color: v.$background;
+  font-weight: bold;
+  padding: 10px;
+}
+
+.alert {
+  &.error {
+    background-color: v.$red;
+  }
+}
+
+.alert {
+  &.succeed {
+    background-color: v.$accent;
+  }
+}

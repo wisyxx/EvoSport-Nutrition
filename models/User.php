@@ -2,10 +2,10 @@
 
 namespace Models;
 
-class User
+class User extends ActiveRecord
 {
-    protected $table = 'users';
-    protected $DBColumns = ['id', 'name', 'surname', 'email', 'password', 'phone'];
+    protected static $table = 'users';
+    protected static $DBColumns = ['id', 'name', 'surname', 'email', 'password', 'phone'];
 
     public $id;
     public $name;
@@ -22,5 +22,17 @@ class User
         $this->email = $args['email'] ?? '';
         $this->password = $args['password'] ?? '';
         $this->phone = $args['phone'] ?? '';
+    }
+
+    public function validate()
+    {
+        if (!$this->email) {
+            static::$errors['error'][] = 'You must write an email!';
+        }
+        if (!$this->password || strlen($this->password) < 8) {
+            static::$errors['error'][] = 'Invalid password, it must have at least 8 characters';
+        }
+
+        return static::$errors;
     }
 }

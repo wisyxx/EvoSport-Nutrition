@@ -20,6 +20,7 @@ $router->get('/product', [ProductsController::class, 'product']);
 
 /*======> LOGIN <======*/
 $router->get('/login', [LoginController::class, 'login']);
+$router->post('/login', [LoginController::class, 'login']);
 
 /*======> API <======*/
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);
