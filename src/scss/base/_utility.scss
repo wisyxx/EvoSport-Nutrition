@@ -39,3 +39,17 @@
     }
   }
 }
+
+.delete-button {
+  background: v.$red;
+  color: v.$background;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-weight: bold;
+  transition: all 0.3s;
+  &:hover {
+    background: darken(v.$red, 8);
+    box-shadow: 0px 0px 15px 0 darken(v.$red, 8);
+  }
+}

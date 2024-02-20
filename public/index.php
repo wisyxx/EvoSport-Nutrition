@@ -2,6 +2,7 @@
 
 include_once __DIR__ . '/../includes/app.php';
 
+use Controllers\AccountController;
 use Controllers\APIController;
 use Controllers\LandingPageController;
 use Controllers\LoginController;
@@ -25,6 +26,8 @@ $router->get('/create-account', [LoginController::class, 'register']);
 $router->post('/create-account', [LoginController::class, 'register']);
 $router->get('/message', [LoginController::class, 'message']);
 $router->get('/logout', [LoginController::class, 'logout']);
+/* Account page */
+$router->get('/account', [AccountController::class, 'index']);
 
 /*======> API <======*/
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);

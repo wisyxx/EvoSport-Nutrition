@@ -24,7 +24,9 @@ class LoginController
                         session_start();
                         $_SESSION['id'] = $user->id;
                         $_SESSION['name'] = $user->name;
+                        $_SESSION['surname'] = $user->surname;
                         $_SESSION['email'] = $user->email;
+                        
                         header('Location: /');
                     }
                 } else {
