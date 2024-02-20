@@ -15,8 +15,6 @@ class LoginController
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new User($_POST);
 
-            $user->sync($_POST); // Sync $_POST data so the user dont have to rewrite all
-
             $alerts = $auth->validateLogin();
 
             if (empty($alerts)) {
@@ -37,7 +35,6 @@ class LoginController
 
         $alerts = User::getAlerts();
         $router->render('auth/login', [
-            'user' => $user,
             'alerts' => $alerts
         ]);
     }
@@ -71,6 +68,14 @@ class LoginController
             'user' => $user,
             'alerts' => $alerts
         ]);
+    }
+    public static function logout(Router $router)
+    {
+        session_start();
+
+        $_SESSION = [];
+
+        $router->render('home/index', []);
     }
     public static function message(Router $router)
     {

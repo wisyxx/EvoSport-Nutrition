@@ -7,7 +7,7 @@
         <section class="drop-menu hidden">
             <a href="/products" class="drop-menu__link">All products</a>
             <a href="/account" class="drop-menu__link">Your account</a>
-            <a href="/log-out" class="drop-menu__link">Log out</a>
+            <a href="/logout" class="drop-menu__link">Log out</a>
         </section>
     </div>
     <a href="/" class="header__logo">

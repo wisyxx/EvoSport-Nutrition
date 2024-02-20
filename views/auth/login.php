@@ -15,7 +15,7 @@
 
         <div class="field">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" placeholder="Your email" value="<?php echo s($user->email) ?>">
+            <input type="email" name="email" id="email" placeholder="Your email" value="<?php echo s($_POST['email']) ?>">
         </div>
         <div class="field">
             <label for="password">Password</label>
