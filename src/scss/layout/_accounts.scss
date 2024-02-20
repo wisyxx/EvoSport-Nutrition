@@ -1,8 +1,8 @@
 @use '../base/variables' as v;
 @use '../base/mixins' as m;
 
-.login {
-  height: 100vh;
+.accounts {
+  min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;

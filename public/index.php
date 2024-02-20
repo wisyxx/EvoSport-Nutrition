@@ -18,9 +18,11 @@ $router->get('/', [LandingPageController::class, 'index']);
 $router->get('/products', [ProductsController::class, 'index']);
 $router->get('/product', [ProductsController::class, 'product']);
 
-/*======> LOGIN <======*/
+/*======> ACCOUNTS <======*/
 $router->get('/login', [LoginController::class, 'login']);
 $router->post('/login', [LoginController::class, 'login']);
+$router->get('/create-account', [LoginController::class, 'register']);
+$router->post('/create-account', [LoginController::class, 'register']);
 
 /*======> API <======*/
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);

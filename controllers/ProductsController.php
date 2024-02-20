@@ -9,13 +9,17 @@ class ProductsController
 {
     public static function index(Router $router)
     {
+        session_start();
+
         $router->render('products/index', []);
     }
 
     public static function product(Router $router)
     {
-        if(!is_numeric($_GET['id'])) {
-            
+        session_start();
+
+        if (!is_numeric($_GET['id'])) {
+            // TO-DO: Create 404 page
         }
 
         $id = $_GET['id'];
@@ -24,6 +28,6 @@ class ProductsController
 
         $router->render('products/product', [
             'product' => $product
-        ]);   
+        ]);
     }
 }

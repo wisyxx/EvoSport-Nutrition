@@ -24,7 +24,7 @@ class User extends ActiveRecord
         $this->phone = $args['phone'] ?? '';
     }
 
-    public function validate()
+    public function validateLogin()
     {
         if (!$this->email) {
             static::$errors['error'][] = 'You must write an email!';
@@ -34,6 +34,24 @@ class User extends ActiveRecord
         }
 
         return static::$errors;
+    }
+    public function validateRegistration()
+    {
+        if (!$this->password || strlen($this->password) < 8) {
+            static::$errors['error'][] = 'Your password must have at least 8 characters';
+        }
+        if (!$this->name) {
+            static::$errors['error'][] = 'You must write your name';
+        }
+        if (!$this->surname) {
+            static::$errors['error'][] = 'You must write your surname';
+        }
+        if (!$this->phone) {
+            static::$errors['error'][] = 'You must write your phone number';
+        }
+        if (!$this->email) {
+            static::$errors['error'][] = 'You must write your email';
+        }
     }
 
     public function validatePassword($password)

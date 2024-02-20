@@ -10,12 +10,14 @@ class LoginController
     public static function login(Router $router)
     {
         $alerts = [];
+        $user = new User();
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new User($_POST);
 
-            $alerts = $auth->validate();
+            $user->sync($_POST); // Sync $_POST data so the user dont have to rewrite all
 
+            $alerts = $auth->validateLogin();
 
             if (empty($alerts)) {
                 $user = User::where('email', $auth->email);
@@ -32,9 +34,31 @@ class LoginController
                 }
             }
         }
-
+                
         $alerts = User::getAlerts();
         $router->render('auth/login', [
+            'user' => $user,
+            'alerts' => $alerts
+        ]);
+    }
+    public static function register(Router $router)
+    {
+        $alerts = [];
+        $user = new User($_POST);
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $user->sync($_POST); // Sync $_POST data so the user dont have to rewrite all
+
+            $alerts = $user->validateRegistration();
+
+            if (empty($alerts)) {
+                $user->sync($_POST);
+            }
+        }
+
+        $alerts = User::getAlerts();
+        $router->render('auth/create-account', [
+            'user' => $user,
             'alerts' => $alerts
         ]);
     }

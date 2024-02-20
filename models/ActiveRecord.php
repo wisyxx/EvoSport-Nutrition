@@ -14,6 +14,7 @@ class ActiveRecord
         self::$db = $database;
     }
 
+    /*======> ALERTS <======*/
     public static function getAlerts()
     {
         return static::$errors;
@@ -23,6 +24,7 @@ class ActiveRecord
         static::$errors[$type][] = $message;
     }
 
+    /*======> DB INTERACTION <======*/
     public static function where($column, $value)
     {
         $query = "SELECT * FROM " . static::$table  . " WHERE $column = '$value'";
@@ -58,6 +60,9 @@ class ActiveRecord
 
         return array_shift($result);
     }
+    
+
+    /*======> MODEL INTERACTION <======*/
     protected static function createObject($record)
     {
         $obj = new static;
@@ -82,5 +87,13 @@ class ActiveRecord
         $result->free();
 
         return $array;
+    }
+    public function sync($args = [])
+    {
+        foreach ($args as $key => $value) {
+            if (property_exists($this, $key) && !is_null($value)) {
+                $this->$key = $value;
+            }
+        }
     }
 }
