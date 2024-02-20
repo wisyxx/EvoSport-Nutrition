@@ -33,7 +33,6 @@ async function getAdImages() {
 }
 
 async function loadAdImages() {
-  console.log('IDK why is it in this page');
   const imagesNames = await getAdImages();
   const adContainer = document.querySelector('.ads-container');
 
