@@ -23,6 +23,7 @@ $router->get('/login', [LoginController::class, 'login']);
 $router->post('/login', [LoginController::class, 'login']);
 $router->get('/create-account', [LoginController::class, 'register']);
 $router->post('/create-account', [LoginController::class, 'register']);
+$router->get('/message', [LoginController::class, 'message']);
 
 /*======> API <======*/
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);

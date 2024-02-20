@@ -34,7 +34,7 @@ class LoginController
                 }
             }
         }
-                
+
         $alerts = User::getAlerts();
         $router->render('auth/login', [
             'user' => $user,
@@ -53,6 +53,16 @@ class LoginController
 
             if (empty($alerts)) {
                 $user->sync($_POST);
+
+                $user->hashPassword($user->password);
+
+                $result = $user->save();
+
+                if ($result['result']) {
+                    header('Location: /message');
+                } else {
+                    $alerts['error'][] = 'An error ocurred, please, try again';
+                }
             }
         }
 
@@ -61,5 +71,9 @@ class LoginController
             'user' => $user,
             'alerts' => $alerts
         ]);
+    }
+    public static function message(Router $router)
+    {
+        $router->render('auth/message', []);
     }
 }

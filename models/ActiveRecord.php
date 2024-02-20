@@ -60,9 +60,71 @@ class ActiveRecord
 
         return array_shift($result);
     }
-    
+    public function save()
+    {
+        $result = '';
+
+        if (!is_null($this->id)) {
+            $result = $this->update();
+        } else {
+            $result = $this->create();
+        }
+        return $result;
+    }
+    public function create()
+    {
+        $atributes = $this->sanitizeAtributes();
+
+        $query = "INSERT INTO " . static::$table . " ( ";
+        $query .= join(', ', array_keys($atributes));
+        $query .= " ) VALUES ( '";
+        $query .= join("', '", array_values($atributes));
+        $query .= "')";
+
+        $result = self::$db->query($query);
+        
+        return [
+            'result' =>  $result,
+            'id' => self::$db->insert_id
+        ];
+    }
+    public function update()
+    {
+        $atributes = $this->sanitizeAtributes();
+
+        $values = [];
+        foreach ($atributes as $key => $value) {
+            $values[] = "$key='$value'";
+        }
+
+        $query = "UPDATE " . static::$table . "SET ";
+        $query .= join(' ,', $values);
+        $query .= " WHERE id = '" . self::$db->escape_string($this->id) . "' ";
+        $query .= " LIMIT 1 ";
+
+        $result = self::$db->query($query);
+        return $result;
+    }
 
     /*======> MODEL INTERACTION <======*/
+    public function atributes()
+    {
+        $atributes = [];
+        foreach (static::$DBColumns as $column) {
+            if ($column === 'id') continue;
+            $atributes[$column] = $this->$column;
+        }
+        return $atributes;
+    }
+    public function sanitizeAtributes()
+    {
+        $atributes = $this->atributes();
+        $sanitized = [];
+        foreach ($atributes as $key => $value) {
+            $sanitized[$key] = self::$db->escape_string($value);
+        }
+        return $sanitized;
+    }
     protected static function createObject($record)
     {
         $obj = new static;

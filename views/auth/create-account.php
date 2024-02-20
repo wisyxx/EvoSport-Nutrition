@@ -24,7 +24,7 @@
         </div>
         <div class="field">
             <label for="phone">Phone</label>
-            <input type="tel" name="phone" id="phone" placeholder="Your phone number" value="<?php echo s($user->phone) ?>">
+            <input maxlength="9" type="tel" name="phone" id="phone" placeholder="Your phone number" value="<?php echo s($user->phone) ?>">
         </div>
         <div class="field">
             <label for="email">Email</label>

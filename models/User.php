@@ -63,4 +63,9 @@ class User extends ActiveRecord
             self::$errors['error'][] = 'Incorrect password';
         }
     }
+
+    public function hashPassword($password)
+    {
+        $this->password = password_hash($password, PASSWORD_BCRYPT);
+    }
 }
