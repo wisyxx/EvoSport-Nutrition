@@ -19,6 +19,24 @@ async function addProductToBasket() {
   const userId = document.querySelector('.user-id').dataset.userid;
   const productId = document.querySelector('.product').dataset.productid;
 
+  if (userId === '') {
+    Swal.fire({
+      title: "You're not logged in!",
+      icon: 'warning',
+      showCancelButton: true,
+      cancelButtonText: 'Close',
+      cancelButtonColor: '#504835',
+      confirmButtonText: 'Log in',
+      confirmButtonColor: '#a1f25f',
+    }).then((result) => {
+      if (result.isConfirmed) {
+        location = 'http://localhost:3000/login';
+      }
+    });
+
+    return;
+  }
+
   data.append('userId', userId);
   data.append('productId', productId);
 
@@ -37,6 +55,7 @@ async function addProductToBasket() {
       cancelButtonText: 'Close',
       cancelButtonColor: '#504835',
       confirmButtonText: 'My basket',
+      confirmButtonColor: '#a1f25f',
       timer: 4000,
       timerProgressBar: true,
       progressBar: true,
