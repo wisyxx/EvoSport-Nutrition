@@ -1,4 +1,5 @@
 <header class="header">
+    <input type="hidden" class="user-id" name="userId" data-userid="<?php echo $_SESSION['id'] ?? ''; ?>">
     <div class="menu">
         <div class="bar-top not-active"></div>
         <div class="bar-middle not-active"></div>

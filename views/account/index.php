@@ -11,24 +11,10 @@
     </div>
 </section>
 
-<section class="shopping-basket">
+<section class="shopping-basket" id="shopping-basket">
     <h1>Shopping basket</h1>
     <div class="shopping-basket__products">
-        <div class="product">
-            <div class="product-info">
-                <div class="product-image">
-                    <img src="build/img/products/creatine.webp" alt="Product image">
-                </div>
-                <p class="product-name">Some product name</p>
-                <p class="product-price">25€</p>
-            </div>
-
-            <form action="/api/basket/delete" method="POST">
-                <input type="hidden" name="id" value="<?php // echo $product->id 
-                                                        ?>">
-                <input class="delete-button" type="submit" value="Delete">
-            </form>
-        </div>
+        
     </div>
 </section>
 

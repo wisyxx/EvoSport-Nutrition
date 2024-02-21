@@ -2,6 +2,7 @@
 
 namespace Controllers;
 
+use Models\UsersProducts;
 use Models\Products;
 
 class APIController
@@ -31,7 +32,7 @@ class APIController
         $result = Products::get(10);
         echo json_encode($result);
     }
-    
+
     public static function productsAPI()
     {
         header(self::$headerJSON);
@@ -39,5 +40,21 @@ class APIController
         $result = Products::all();
         $products = array_chunk($result, 10);
         echo json_encode(['products' => $products[$page - 1], 'productsCount' => count($result)]);
+    }
+    public static function shoppingBasket()
+    {
+        header(self::$headerJSON);
+        session_start();
+
+        $result = '';
+        $usersProducts = new UsersProducts($_POST);
+
+        if ($usersProducts->userId !== $_SESSION['id'] || !is_numeric($usersProducts->productId)) {
+            $result = ['error' => 'An error ocured please try again later'];
+        } else {
+            $result = $usersProducts->save();
+        }
+
+        echo json_encode($result);
     }
 }
