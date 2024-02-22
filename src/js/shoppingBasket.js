@@ -37,7 +37,6 @@ async function addProductToBasket() {
     return;
   }
 
-  data.append('userId', userId);
   data.append('productId', productId);
 
   try {

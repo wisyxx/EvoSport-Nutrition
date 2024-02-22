@@ -22,7 +22,10 @@
                 <div class="product-info">
                     <p class="product-name"><?php echo $product->name ?></p>
                     <p class="product-price"><?php echo $product->price ?>€</p>
-                    <a class="delete-button" href="/api/basket/delete?=<?php echo $product->productId ?>">Delete</a>
+                    <form action="/api/basket/delete" method="POST">
+                        <input type="hidden" name="id" value="<?php echo $product->productId ?>">
+                        <input type="button" class="delete-button" value="Delete">
+                    </form>
                 </div>
             </div>
         <?php endforeach; ?>

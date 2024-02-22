@@ -44,16 +44,14 @@ class APIController
     public static function shoppingBasket()
     {
         header(self::$headerJSON);
+
         session_start();
 
         $result = '';
         $usersProducts = new UsersProducts($_POST);
+        $usersProducts->userId = $_SESSION['id'];
+        $result = $usersProducts->save();
 
-        if ($usersProducts->userId !== $_SESSION['id'] || !is_numeric($usersProducts->productId)) {
-            $result = ['error' => 'An error ocured please try again later'];
-        } else {
-            $result = $usersProducts->save();
-        }
 
         echo json_encode($result);
     }

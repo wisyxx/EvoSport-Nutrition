@@ -67,8 +67,9 @@
   }
 
   .basket-product {
+    min-width: 230px;
     display: flex;
-    justify-content: space-evenly;
+    justify-content: start;
     align-items: center;
     gap: 10px;
     padding: 10px;
