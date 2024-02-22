@@ -41,6 +41,7 @@
 }
 
 .delete-button {
+  width: min-content;
   background: v.$red;
   color: v.$background;
   border: none;

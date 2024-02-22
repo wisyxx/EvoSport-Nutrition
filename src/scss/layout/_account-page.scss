@@ -53,7 +53,8 @@
 
 .shopping-basket__products {
   display: grid;
-  max-height: 350px;
+  // max-height: 350px;
+  // overflow: scroll;
   @include m.gridCols(1, 10px);
   @include m.tablet {
     @include m.gridCols(2, 10px);
@@ -65,8 +66,10 @@
     @include m.gridCols(4, 20px);
   }
 
-  .product {
-    display: grid;
+  .basket-product {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
     gap: 10px;
     padding: 10px;
     background: v.$primary;
@@ -80,6 +83,7 @@
       object-fit: cover;
       border-radius: 5px;
     }
+    
     .product-image {
       display: flex;
       flex-direction: column;
@@ -91,11 +95,9 @@
       font-weight: bold;
       margin: 0;
     }
-    .product-name {
-      margin-top: 10px;
-    }
     .product-price {
       color: v.$accent;
+      margin-bottom: 20px;
     }
   }
 }
