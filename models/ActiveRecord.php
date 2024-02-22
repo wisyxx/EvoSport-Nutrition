@@ -108,9 +108,17 @@ class ActiveRecord
     public static function SQL($query)
     {
         $result = self::queryDB($query);
+        
         return $result;
     }
+    public static function delete($id)
+    {
+        $query = "DELETE FROM " . static::$table;
+        $query .= " WHERE id = " . $id;
+        $result = self::$db->query($query);
 
+        return $result;
+    }
     /*======> MODEL INTERACTION <======*/
     public function atributes()
     {

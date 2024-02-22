@@ -5,8 +5,9 @@ namespace Models;
 class Basket extends ActiveRecord
 {
     protected static $table = 'usersproducts';
-    protected static $DBColumns = ['productId', 'name', 'price', 'image'];
+    protected static $DBColumns = ['id', 'productId', 'name', 'price', 'image'];
 
+    public $id;
     public $productId;
     public $name;
     public $price;

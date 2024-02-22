@@ -16,20 +16,21 @@
     <div class="shopping-basket__products">
         <?php foreach ($basketProducts as $product) : ?>
             <div class="basket-product">
-                <div class="product-image">
+                <div class=" product-image">
                     <img src="build/img/products/<?php echo $product->image ?>" alt="Product image">
                 </div>
-                <div class="product-info">
-                    <p class="product-name"><?php echo $product->name ?></p>
+                <div class="product-info" data-productid="<?php echo $product->productId ?>">
+                    <p class=" product-name"><?php echo $product->name ?></p>
                     <p class="product-price"><?php echo $product->price ?>€</p>
-                    <form action="/api/basket/delete" method="POST">
-                        <input type="hidden" name="id" value="<?php echo $product->productId ?>">
-                        <input type="button" class="delete-button" value="Delete">
-                    </form>
+                    <button class="delete-button" type="button" data-basketitemid="<?php echo $product->id ?>">Remove</button>
                 </div>
             </div>
         <?php endforeach; ?>
     </div>
 </section>
 
-<?php $script = '<script type="module" src="build/js/app.js"></script>'; ?>
+<?php
+$script = '<script type="module" src="build/js/app.js"></script>';
+$script .= '<script type="module" src="build/js/shoppingBasket.js"></script>';
+$script .= '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+?>

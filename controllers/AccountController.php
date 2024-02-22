@@ -16,7 +16,7 @@ class AccountController
         }
         // TO-DO: Add functionality to load shopping basket products
         $shoppingBasket = new Basket;
-        $query = "SELECT products.name, products.image, products.price, "; 
+        $query = "SELECT usersproducts.id, products.name, products.image, products.price, "; 
         $query .= "products.id as 'productId' FROM products ";
         $query .= "LEFT OUTER JOIN usersproducts ON usersproducts.productId = products.id ";
         $query .= "WHERE usersproducts.userId = " . $_SESSION['id'];

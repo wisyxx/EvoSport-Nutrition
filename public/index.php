@@ -33,7 +33,7 @@ $router->get('/account', [AccountController::class, 'index']);
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);
 $router->get('/api/popular-products', [APIController::class, 'popularProductsAPI']);
 $router->get('/api/products', [APIController::class, 'productsAPI']);
-$router->post('/api/basket', [APIController::class, 'shoppingBasket']);
-$router->post('/api/basket/delete', [APIController::class, 'shoppingBasket']);
+$router->post('/api/basket', [APIController::class, 'loadShoppingBasket']);
+$router->post('/api/basket/delete', [APIController::class, 'deleteProductFromBasket']);
 
 $router->checkRoutes();

@@ -3,14 +3,26 @@ window.addEventListener('DOMContentLoaded', () => {
 });
 
 function startApp() {
-  addProductBtn();
+  addProductToBasketBtn();
+  removeProductFromBasketBtn();
 }
 
-function addProductBtn() {
+function addProductToBasketBtn() {
   const btn = document.querySelector('.basket-add');
-
+  if (!btn) {
+    return;
+  }
   btn.addEventListener('click', () => {
     addProductToBasket();
+  });
+}
+function removeProductFromBasketBtn() {
+  const btn = document.querySelectorAll('.delete-button');
+
+  btn.forEach((button) => {
+    button.addEventListener('click', () => {
+      removeProductFromBasket();
+    });
   });
 }
 
@@ -57,7 +69,6 @@ async function addProductToBasket() {
       confirmButtonColor: '#a1f25f',
       timer: 4000,
       timerProgressBar: true,
-      progressBar: true,
       showClass: {
         popup: `
       animate__animated
@@ -75,6 +86,54 @@ async function addProductToBasket() {
       if (result.isConfirmed) {
         location = 'http://localhost:3000/account#shopping-basket';
       }
+    });
+  } catch (error) {
+    /* Sweet alert */
+    Swal.fire({
+      title: 'Something went wrong...',
+      text: 'Try again later',
+      icon: 'error',
+    }).then(() => {
+      location.reload();
+    });
+  }
+}
+
+async function removeProductFromBasket() {
+  const data = new FormData();
+  const basketItemId =
+    document.querySelector('.delete-button').dataset.basketitemid;
+
+  data.append('id', basketItemId);
+
+  try {
+    const response = await fetch('http://localhost:3000/api/basket/delete', {
+      method: 'POST',
+      body: data,
+    });
+
+    /* Sweet alert */
+    Swal.fire({
+      position: 'top-end',
+      icon: 'success',
+      title: 'Product removed from your basket',
+      confirmButtonText: 'Close',
+      confirmButtonColor: '#a1f25f',
+      showClass: {
+        popup: `
+      animate__animated
+      animate__faster
+      animate__backInRight
+    `,
+      },
+      hideClass: {
+        popup: `
+      animate__animated
+      animate__backOutRight
+    `,
+      },
+    }).then(() => {
+      location.reload();
     });
   } catch (error) {
     /* Sweet alert */

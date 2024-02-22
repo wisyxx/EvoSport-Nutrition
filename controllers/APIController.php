@@ -41,17 +41,27 @@ class APIController
         $products = array_chunk($result, 10);
         echo json_encode(['products' => $products[$page - 1], 'productsCount' => count($result)]);
     }
-    public static function shoppingBasket()
+    public static function loadShoppingBasket()
     {
         header(self::$headerJSON);
 
         session_start();
 
-        $result = '';
         $usersProducts = new UsersProducts($_POST);
         $usersProducts->userId = $_SESSION['id'];
         $result = $usersProducts->save();
 
+        echo json_encode($result);
+    }
+    public static function deleteProductFromBasket()
+    {
+        header(self::$headerJSON);
+        
+        $product = new UsersProducts;
+        $id = $_POST['id'];
+
+        // Deletes the usersproducts (basket) entry so it is no loger in the user basket
+        $result = $product->delete($id);
 
         echo json_encode($result);
     }

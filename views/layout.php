@@ -15,7 +15,9 @@
     <?php
     // Conditional JS
     echo $script ?? '';
+    
     ?>
+
 </body>
 
 </html>
