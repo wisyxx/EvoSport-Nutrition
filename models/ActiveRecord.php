@@ -82,7 +82,7 @@ class ActiveRecord
         $query .= "')";
 
         $result = self::$db->query($query);
-        
+
         return [
             'result' =>  $result,
             'id' => self::$db->insert_id
@@ -103,6 +103,11 @@ class ActiveRecord
         $query .= " LIMIT 1 ";
 
         $result = self::$db->query($query);
+        return $result;
+    }
+    public static function SQL($query)
+    {
+        $result = self::queryDB($query);
         return $result;
     }
 

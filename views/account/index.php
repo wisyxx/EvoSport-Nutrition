@@ -14,7 +14,18 @@
 <section class="shopping-basket" id="shopping-basket">
     <h1>Shopping basket</h1>
     <div class="shopping-basket__products">
-        
+        <?php foreach ($basketProducts as $product) : ?>
+            <div class="product">
+                <div class="product-info">
+                    <div class="product-image">
+                        <img src="build/img/products/<?php echo $product->image ?>" alt="Product image">
+                    </div>
+                    <p class="product-name"><?php echo $product->name ?></p>
+                    <p class="product-price"><?php echo $product->price ?>€</p>
+                </div>
+                <a class="delete-button" href="/api/basket/delete?=<?php echo $product->productId ?>">Delete</a>
+            </div>
+        <?php endforeach; ?>
     </div>
 </section>
 
