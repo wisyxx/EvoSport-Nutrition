@@ -39,7 +39,7 @@
 
         <div class="actions">
             <a href="/forgot-password" class="forgot">Reset password</a>
-            <a href="/create-account">Don't have an account yet? <span>Create one!</span></a>
+            <a href="/login">Already have an account? <span>Log in!</span></a>
         </div>
     </form>
     <div class="overlay"></div>
