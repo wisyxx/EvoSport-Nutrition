@@ -1,0 +1,60 @@
+@use '../base/variables' as v;
+@use '../base/mixins' as m;
+
+.go-to-profile {
+  display: flex;
+  align-items: center;
+  color: v.$text;
+}
+
+.edit-profile-title {
+  margin-left: 0;
+}
+
+.profile-container {
+  margin: 20px 40px;
+
+  .profile-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    @include m.tablet {
+      flex-direction: row;
+    }
+
+    gap: 30px;
+    margin-bottom: 20px;
+  }
+}
+
+.edit-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  color: v.$text;
+  margin-bottom: 30px;
+
+  label {
+    font-weight: bold;
+  }
+  input {
+    display: block;
+    background: v.$secondary;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+
+    &:focus {
+      outline: v.$primary solid 1px;
+    }
+  }
+  .save {
+    width: auto;
+    @include m.tablet {
+      width: min-content;
+    }
+    color: v.$background;
+    background: v.$primary;
+  }
+}

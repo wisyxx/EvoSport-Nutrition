@@ -38,7 +38,6 @@
         <input class="button submit" type="submit" value="Create account">
 
         <div class="actions">
-            <a href="/forgot-password" class="forgot">Reset password</a>
             <a href="/login">Already have an account? <span>Log in!</span></a>
         </div>
     </form>

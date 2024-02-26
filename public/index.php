@@ -28,6 +28,8 @@ $router->get('/message', [LoginController::class, 'message']);
 $router->get('/logout', [LoginController::class, 'logout']);
 /* Account page */
 $router->get('/account', [AccountController::class, 'index']);
+$router->get('/edit-profile', [AccountController::class, 'editProfile']);
+$router->post('/edit-profile', [AccountController::class, 'editProfile']);
 
 /*======> API <======*/
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);

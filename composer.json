@@ -9,7 +9,9 @@
       "email": "alvarohcolino@gmail.com"
     }
   ],
-  "require": {},
+  "require": {
+    "intervention/image": "^3.4"
+  },
   "autoload": {
     "psr-4": {
       "Models\\": "./models",

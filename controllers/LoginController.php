@@ -26,6 +26,7 @@ class LoginController
                         $_SESSION['name'] = $user->name;
                         $_SESSION['surname'] = $user->surname;
                         $_SESSION['email'] = $user->email;
+                        $_SESSION['phone'] = $user->phone;
                         
                         header('Location: /');
                     }
