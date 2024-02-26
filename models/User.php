@@ -53,6 +53,23 @@ class User extends ActiveRecord
             static::$errors['error'][] = 'You must write your email';
         }
     }
+    public function validateEditProfile()
+    {
+        if (!$this->name) {
+            static::$errors['error'][] = 'You must write your name';
+        }
+        if (!$this->surname) {
+            static::$errors['error'][] = 'You must write your surname';
+        }
+        if (!$this->phone) {
+            static::$errors['error'][] = 'You must write your phone number';
+        }
+        if (!$this->email) {
+            static::$errors['error'][] = 'You must write your email';
+        }
+
+        return static::$errors;
+    }
 
     public function validatePassword($password)
     {

@@ -10,22 +10,27 @@
         <img src="build/img/users/1.webp" alt="User profile image" class="profile-image">
         <h2 class="user-name-title"><?php echo $_SESSION['name'] . ' ' . $_SESSION['surname'] ?></h2>
     </section>
+
+    <?php
+    include_once __DIR__ . '/../templates/alerts.php';
+    ?>
+    
     <form action="/edit-profile" method="POST" class="edit-form">
         <div class="field">
             <label for="name">Name</label>
-            <input type="text" name="name" id="name" value="<?php echo $_SESSION['name'] ?>">
+            <input type="text" name="name" id="name" value="<?php echo $user->name ?>">
         </div>
         <div class="field">
             <label for="surname">Surname</label>
-            <input type="text" name="surname" id="surname" value="<?php echo $_SESSION['surname'] ?>">
+            <input type="text" name="surname" id="surname" value="<?php echo $user->surname ?>">
         </div>
         <div class="field">
             <label for="email">Email</label>
-            <input type="email" name="email" id="email" value="<?php echo $_SESSION['email'] ?>">
+            <input type="email" name="email" id="email" value="<?php echo $user->email ?>">
         </div>
         <div class="field">
             <label for="phone">Phone</label>
-            <input type="tel" name="phone" id="phone" value="<?php echo $_SESSION['phone'] ?>">
+            <input type="tel" name="phone" id="phone" value="<?php echo $user->phone ?>">
         </div>
 
         <input class="save" type="submit" value="Save changes">

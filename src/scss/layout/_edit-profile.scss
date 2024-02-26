@@ -28,10 +28,13 @@
 }
 
 .edit-form {
+  background-color: v.$primary;
+  padding: 20px;
+  border-radius: 15px;
   display: flex;
   flex-direction: column;
   gap: 10px;
-  color: v.$text;
+  color: v.$background;
   margin-bottom: 30px;
 
   label {
@@ -39,22 +42,22 @@
   }
   input {
     display: block;
-    background: v.$secondary;
     width: 100%;
     padding: 10px;
     border: none;
     border-radius: 5px;
 
     &:focus {
-      outline: v.$primary solid 1px;
+      outline: v.$secondary solid 2px;
     }
   }
   .save {
     width: auto;
+    color: v.$text;
+    background: darken(v.$secondary, 5);
+    font-weight: bold;
     @include m.tablet {
       width: min-content;
     }
-    color: v.$background;
-    background: v.$primary;
   }
 }

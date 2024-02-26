@@ -3,6 +3,7 @@
 namespace Controllers;
 
 use Models\Basket;
+use Models\User;
 use MVC\Router;
 
 class AccountController
@@ -29,10 +30,24 @@ class AccountController
     }
     public static function editProfile(Router $router)
     {
-        session_start();    
+        session_start();
+
+        $user = User::find($_SESSION['id']);
+        
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $user->sync($_POST);
+            $alerts = $user->validateEditProfile();
+
+            if (empty($alerts)) {
+                $user->save();
+                $user::setAlert('succeed', 'Profile updated!');
+            }
         }
 
-        $router->render('account/edit-profile', []);
+        $alerts = User::getAlerts();
+        $router->render('account/edit-profile', [
+            'user' => $user,
+            'alerts' => $alerts
+        ]);
     }
 }
