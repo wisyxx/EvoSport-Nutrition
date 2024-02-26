@@ -1,7 +1,9 @@
 <?php include_once __DIR__ . '/../templates/header.php' ?>
 
 <section class="account-info">
-    <img src="build/img/users/1.webp" alt="User profile picture" class="profile-image">
+    <?php
+    include  __DIR__ . '/../templates/profile-image.php';
+    ?>
     <div class="user-info">
         <h1>Hello, <?php echo $_SESSION['name'] . ' ' . $_SESSION['surname']; ?>!</h1>
         <div class="actions">

@@ -27,6 +27,30 @@
   }
 }
 
+.profile-image-container {
+  position: relative;
+
+  .image-upload {
+    display: grid;
+    place-items: center;
+    width: 40px;
+    height: 40px;
+    background: darken(v.$secondary, 10);
+    border-radius: 50%;
+    position: absolute;
+    bottom: 20px;
+    right: 25px;
+    cursor: pointer;
+
+    svg {
+      stroke: v.$background;
+    }
+  }
+  .img-input {
+    display: none;
+  }
+}
+
 .edit-form {
   background-color: v.$primary;
   padding: 20px;
@@ -53,8 +77,8 @@
   }
   .save {
     width: auto;
-    color: v.$text;
-    background: darken(v.$secondary, 5);
+    color: v.$background;
+    background: darken(v.$secondary, 10);
     font-weight: bold;
     @include m.tablet {
       width: min-content;

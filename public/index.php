@@ -7,7 +7,6 @@ use Controllers\APIController;
 use Controllers\LandingPageController;
 use Controllers\LoginController;
 use Controllers\ProductsController;
-use Models\Products;
 use MVC\Router;
 
 $router = new Router();

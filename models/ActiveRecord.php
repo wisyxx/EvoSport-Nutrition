@@ -14,6 +14,16 @@ class ActiveRecord
         self::$db = $database;
     }
 
+    /*======> IMAGES <======*/
+    public function deleteImage()
+    {
+        if ($this->profileImage) {
+            unlink('build/img/users/' . $this->profileImage);
+        } else {
+            return;
+        }
+    }
+
     /*======> ALERTS <======*/
     public static function getAlerts()
     {
@@ -108,7 +118,7 @@ class ActiveRecord
     public static function SQL($query)
     {
         $result = self::queryDB($query);
-        
+
         return $result;
     }
     public static function delete($id)

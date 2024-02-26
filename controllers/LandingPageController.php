@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Models\ActiveRecord;
 use MVC\Router;
+use Models\User;
 
 class LandingPageController extends ActiveRecord
 {
@@ -11,6 +12,10 @@ class LandingPageController extends ActiveRecord
     {
         session_start();
 
-        $router->render('home/index', []);
+        $user = User::find($_SESSION['id']);
+
+        $router->render('home/index', [
+            'user' => $user
+        ]);
     }
 }

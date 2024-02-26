@@ -1,0 +1,1 @@
+function startApp(){clickImgInput()}function clickImgInput(){const t=document.querySelector(".img-input");document.querySelector(".image-upload").addEventListener("click",()=>{t.click()})}window.addEventListener("DOMContentLoaded",()=>{startApp()});

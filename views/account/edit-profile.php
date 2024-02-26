@@ -6,16 +6,27 @@
     <h1 class="edit-profile-title">Edit profile</h1>
 </a>
 <main class="profile-container">
-    <section class="profile-info">
-        <img src="build/img/users/1.webp" alt="User profile image" class="profile-image">
-        <h2 class="user-name-title"><?php echo $_SESSION['name'] . ' ' . $_SESSION['surname'] ?></h2>
-    </section>
-
     <?php
     include_once __DIR__ . '/../templates/alerts.php';
     ?>
-    
-    <form action="/edit-profile" method="POST" class="edit-form">
+
+    <form action="/edit-profile" method="POST" class="edit-form" enctype="multipart/form-data">
+        <section class="profile-info">
+            <div class="profile-image-container">
+                <?php
+                    include_once __DIR__ . '/../templates/profile-image.php';
+                ?>
+                <div class="image-upload">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-camera" width="24" height="24" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+                        <path stroke="none" d="M0 0h24v24H0z" fill="none" />
+                        <path d="M5 7h1a2 2 0 0 0 2 -2a1 1 0 0 1 1 -1h6a1 1 0 0 1 1 1a2 2 0 0 0 2 2h1a2 2 0 0 1 2 2v9a2 2 0 0 1 -2 2h-14a2 2 0 0 1 -2 -2v-9a2 2 0 0 1 2 -2" />
+                        <path d="M9 13a3 3 0 1 0 6 0a3 3 0 0 0 -6 0" />
+                    </svg>
+                    <input class="img-input" type="file" name="profile-img" id="profile-img" accept="image/*">
+                </div>
+            </div>
+            <h2 class="user-name-title"><?php echo $user->name . ' ' . $user->surname ?></h2>
+        </section>
         <div class="field">
             <label for="name">Name</label>
             <input type="text" name="name" id="name" value="<?php echo $user->name ?>">
@@ -36,3 +47,5 @@
         <input class="save" type="submit" value="Save changes">
     </form>
 </main>
+
+<?php $script = '<script src="build/js/editProfile.js"></script>'; ?>

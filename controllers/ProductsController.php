@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Models\Products;
 use MVC\Router;
+use Models\User;
 
 class ProductsController
 {
@@ -11,22 +12,25 @@ class ProductsController
     {
         session_start();
 
-        $router->render('products/index', []);
+        $user = User::find($_SESSION['id']);
+
+        $router->render('products/index', [
+            'user' => $user
+        ]);
     }
 
     public static function product(Router $router)
     {
         session_start();
 
-        if (!is_numeric($_GET['id'])) {
-            // TO-DO: Create 404 page
-        }
+        $user = User::find($_SESSION['id']);
 
         $id = $_GET['id'];
 
         $product = Products::find($id);
 
         $router->render('products/product', [
+            'user' => $user,
             'product' => $product
         ]);
     }

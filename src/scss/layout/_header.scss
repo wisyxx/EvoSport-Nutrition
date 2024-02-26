@@ -26,6 +26,12 @@
       flex-direction: row;
       margin-right: 40px;
     }
+
+    .profile-image {
+      object-fit: cover;
+      width: 43px;
+      height: 43px;
+    }
   }
 
   .login-button {

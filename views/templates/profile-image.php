@@ -1,0 +1,1 @@
+<img src="build/img/users/<?php echo $user->profileImage !== '' ? $user->profileImage : 'user.webp' ?>" alt="User profile image" class="profile-image">

@@ -24,7 +24,9 @@
         </a>
         <?php if (!empty($_SESSION['name'])) : ?>
             <a href="/account">
-                <img loading="lazy" class="header__logo" src="build/img/user-logo.svg" alt="Shopping basket logo button">
+                <?php
+                include_once __DIR__ . '/profile-image.php';
+                ?>
             </a>
         <?php else : ?>
             <a href="/login" class="login-button button">Log in</a>

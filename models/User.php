@@ -5,7 +5,7 @@ namespace Models;
 class User extends ActiveRecord
 {
     protected static $table = 'users';
-    protected static $DBColumns = ['id', 'name', 'surname', 'email', 'password', 'phone'];
+    protected static $DBColumns = ['id', 'name', 'surname', 'email', 'password', 'phone', 'profileImage'];
 
     public $id;
     public $name;
@@ -13,6 +13,7 @@ class User extends ActiveRecord
     public $email;
     public $password;
     public $phone;
+    public $profileImage;
 
     public function __construct($args = [])
     {
@@ -22,6 +23,7 @@ class User extends ActiveRecord
         $this->email = $args['email'] ?? '';
         $this->password = $args['password'] ?? '';
         $this->phone = $args['phone'] ?? '';
+        $this->profileImage = $args['profileImage'] ?? '';
     }
 
     public function validateLogin()
