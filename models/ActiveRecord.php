@@ -15,10 +15,15 @@ class ActiveRecord
     }
 
     /*======> IMAGES <======*/
-    public function deleteImage()
+    public function deleteUserImage()
     {
+        /* !!! -> if you set the image before calling this method it will not change 
+        bc after setting the new image this method deletes it */
+
         if ($this->profileImage) {
             unlink('build/img/users/' . $this->profileImage);
+            $this->profileImage = '';
+            $this->save(); // save new image value
         } else {
             return;
         }

@@ -1,6 +1,5 @@
 <?php include_once __DIR__ . '/../templates/header.php' ?>
 
-
 <section class="ads-container"></section>
 
 <main class="popular-products">

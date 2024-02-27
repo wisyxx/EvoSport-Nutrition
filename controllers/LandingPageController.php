@@ -12,7 +12,10 @@ class LandingPageController extends ActiveRecord
     {
         session_start();
 
-        $user = User::find($_SESSION['id']);
+        $user = '';
+        if (!empty($_SESSION)) {
+            $user = User::find($_SESSION['id']);
+        }
 
         $router->render('home/index', [
             'user' => $user

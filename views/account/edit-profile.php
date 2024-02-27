@@ -14,7 +14,7 @@
         <section class="profile-info">
             <div class="profile-image-container">
                 <?php
-                    include_once __DIR__ . '/../templates/profile-image.php';
+                include_once __DIR__ . '/../templates/profile-image.php';
                 ?>
                 <div class="image-upload">
                     <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-camera" width="24" height="24" viewBox="0 0 24 24" stroke-width="3" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
@@ -26,6 +26,7 @@
                 </div>
             </div>
             <h2 class="user-name-title"><?php echo $user->name . ' ' . $user->surname ?></h2>
+            <button type="button" class="delete-button delete-profile-image">Remove profile image</button>
         </section>
         <div class="field">
             <label for="name">Name</label>
@@ -48,4 +49,7 @@
     </form>
 </main>
 
-<?php $script = '<script src="build/js/editProfile.js"></script>'; ?>
+<?php $script = '<script src="build/js/editProfile.js"></script>';
+$script .= '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+
+?>

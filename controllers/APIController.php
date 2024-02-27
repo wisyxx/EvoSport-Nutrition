@@ -4,6 +4,7 @@ namespace Controllers;
 
 use Models\UsersProducts;
 use Models\Products;
+use Models\User;
 
 class APIController
 {
@@ -56,7 +57,7 @@ class APIController
     public static function deleteProductFromBasket()
     {
         header(self::$headerJSON);
-        
+
         $product = new UsersProducts;
         $id = $_POST['id'];
 
@@ -64,5 +65,16 @@ class APIController
         $result = $product->delete($id);
 
         echo json_encode($result);
+    }
+    public static function deleteUserPfp()
+    {
+        header(static::$headerJSON);
+        session_start();
+
+        $user = User::find($_SESSION['id']);
+
+        $result = $user->deleteUserImage();
+    
+        json_encode($result);
     }
 }

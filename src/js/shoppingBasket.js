@@ -28,7 +28,7 @@ function removeProductFromBasketBtn() {
 
 async function addProductToBasket() {
   const data = new FormData();
-  const userId = document.querySelector('.user-id').dataset.userid;
+  const userId = document.querySelector('.userId').dataset.id;
   const productId = document.querySelector('.product').dataset.productid;
 
   if (userId === '') {
