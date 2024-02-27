@@ -1,0 +1,59 @@
+@use '../base/variables' as v;
+
+.admin-page {
+  height: 100vh;
+  padding: 25px;
+}
+.admin-page__title {
+  margin: 0;
+}
+
+.admin-panels {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  gap: 50px;
+  height: 90%;
+  padding: 40px;
+}
+
+.products-panel__heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 15px;
+}
+
+.admin-panels__panel {
+  padding: 20px;
+  background: v.$primary;
+  overflow: scroll;
+  scrollbar-width: none;
+  height: 100%;
+  color: v.$background;
+  border-radius: 25px;
+
+  img {
+    object-fit: cover;
+    width: 150px;
+    height: 150px;
+
+    &.product-img {
+        border-radius: 5px;
+    }
+  }
+  h2 {
+    margin: 0;
+  }
+}
+
+.panel-card {
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  margin-bottom: 25px;
+
+  &:last-of-type {
+    margin-bottom: 0;
+  }
+}

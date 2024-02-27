@@ -3,6 +3,7 @@
 include_once __DIR__ . '/../includes/app.php';
 
 use Controllers\AccountController;
+use Controllers\AdminController;
 use Controllers\APIController;
 use Controllers\LandingPageController;
 use Controllers\LoginController;
@@ -30,6 +31,9 @@ $router->get('/account', [AccountController::class, 'index']);
 $router->get('/edit-profile', [AccountController::class, 'editProfile']);
 $router->post('/edit-profile', [AccountController::class, 'editProfile']);
 
+/*======> ADMIN PANEL <======*/
+$router->get('/admin', [AdminController::class, 'index']);
+
 /*======> API <======*/
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);
 $router->get('/api/popular-products', [APIController::class, 'popularProductsAPI']);
@@ -37,5 +41,7 @@ $router->get('/api/products', [APIController::class, 'productsAPI']);
 $router->post('/api/basket', [APIController::class, 'loadShoppingBasket']);
 $router->post('/api/basket/delete', [APIController::class, 'deleteProductFromBasket']);
 $router->post('/api/images/delete-pfp', [APIController::class, 'deleteUserPfp']);
+$router->post('/api/users/delete', [APIController::class, 'deleteUser']);
+$router->post('/api/users/set-admin', [APIController::class, 'setAdmin']);
 
 $router->checkRoutes();
