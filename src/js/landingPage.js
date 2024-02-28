@@ -1,4 +1,4 @@
-import { fetchAPI } from "./app.js";
+import { fetchAPI } from './app.js';
 
 document.addEventListener('DOMContentLoaded', () => {
   startApp();
@@ -11,8 +11,6 @@ async function startApp() {
   await loadPopularProducts();
   popularProductsSlider();
 }
-
-
 
 /*======> AD SLIDE SHOW <======*/
 async function getAdImages() {

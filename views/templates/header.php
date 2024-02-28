@@ -19,7 +19,7 @@
         <img loading="lazy" src="build/img/EvoSportLogo.svg" alt="Companie logo">
     </a>
     <div class="actions">
-        <a href="/shopping-basket">
+        <a href="/account#shopping-basket">
             <img loading="lazy" class="header__logo" src="build/img/shopping-basket.svg" alt="Shopping basket logo button">
         </a>
         <?php if (!empty($_SESSION['name'])) : ?>
