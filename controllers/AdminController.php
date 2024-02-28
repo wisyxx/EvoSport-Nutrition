@@ -11,13 +11,14 @@ class AdminController
     public static function index(Router $router)
     {
         session_start();
-
+        $user = User::find($_SESSION['id']);
         $users = User::all();
         $products = Products::all();
         
         $router->render('admin/index', [
             'users' => $users,
-            'products' => $products
+            'products' => $products,
+            'user' => $user
         ]);
     }
 }

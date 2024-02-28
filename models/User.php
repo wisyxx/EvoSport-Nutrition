@@ -25,7 +25,7 @@ class User extends ActiveRecord
         $this->password = $args['password'] ?? '';
         $this->phone = $args['phone'] ?? '';
         $this->profileImage = $args['profileImage'] ?? '';
-        $this->admin = $args['admin'] ?? '';
+        $this->admin = $args['admin'] ?? 0;
     }
 
     public function validateLogin()

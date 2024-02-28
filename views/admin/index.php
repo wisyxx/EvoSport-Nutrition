@@ -1,3 +1,4 @@
+<?php include_once __DIR__ . '/../templates/header.php' ?>
 <main class="admin-page">
     <h1 class="admin-page__title">Admin panel</h1>
     <a class="admin-page__home-button" href="/">Home page</a>
@@ -17,11 +18,8 @@
                             <p class="card-data-field"><span>Phone: </span><?php echo $user->phone ?></p>
                         </div>
                         <div class="card-actions">
-                            <a href="/api/users/set-admin" class="set-admin button">Set admin</a>
-                            <form class="form" action="/api/users/delete" method="POST">
-                                <input type="hidden" name="id" value="<?php echo $user->id ?>">
-                                <input type="submit" name="delete" class="remove-user delete-button" value="Delete">
-                            </form>
+                            <input data-userid="<?php echo $user->id ?>" type="button" class="set-admin button" value="Set admin">
+                            <input data-userid="<?php echo $user->id ?>" type="button" name="delete" class="remove-user delete-button" value="Delete">
                         </div>
                     </div>
                 </div>
@@ -53,3 +51,9 @@
         </aside>
     </section>
 </main>
+
+<?php
+$script = '<script type="module" src="build/js/app.js"></script>';
+$script .= '<script type="module" src="build/js/adminPanel.js"></script>';
+$script .= '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
+?>

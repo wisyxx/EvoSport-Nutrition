@@ -45,9 +45,9 @@ class AccountController
 
             if ($_FILES['profile-img']['tmp_name']) {
                 $imageName = md5($_FILES['profile-img']['tmp_name']);
-                
+
                 $user->deleteUserImage(); // remove last image from file system
-                
+
                 // create new manager instance with desired driver
                 $manager = new ImageManager(Driver::class);
                 $image = $manager->read($_FILES['profile-img']['tmp_name']); // reading image

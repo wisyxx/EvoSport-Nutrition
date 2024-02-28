@@ -80,12 +80,12 @@ class APIController
     public static function deleteUser()
     {
         header(static::$headerJSON);
-
         session_start();
 
         $id = $_POST['id'];
         $user = User::find($id);
-        $user->delete($id);
-        header('Location: /admin');
+        $result = $user->delete($id);
+
+        echo json_encode(['result' => $result]);
     }
 }
