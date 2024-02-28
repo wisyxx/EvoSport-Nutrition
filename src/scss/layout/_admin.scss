@@ -45,7 +45,7 @@
   width: 100%;
   color: v.$background;
   border-radius: 25px;
-  box-shadow: 0px 0px 24px 0px v.$secondary;
+  box-shadow: 0px 0px 24px 0px v.$primary;
   padding: 20px;
 
   img {
@@ -86,7 +86,19 @@
   margin-bottom: 10px;
 }
 .card-actions {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  gap: 10px;
   margin: 15px 0 10px 0;
+  text-align: center;
+  .form {
+    width: 100%;
+    input {
+      width: 100%;
+      text-align: center;
+    }
+  }
 }
 .card-data {
   p {

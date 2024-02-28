@@ -17,8 +17,11 @@
                             <p class="card-data-field"><span>Phone: </span><?php echo $user->phone ?></p>
                         </div>
                         <div class="card-actions">
-                            <a href="/api/users/delete" class="remove-user delete-button">Delete</a>
                             <a href="/api/users/set-admin" class="set-admin button">Set admin</a>
+                            <form class="form" action="/api/users/delete" method="POST">
+                                <input type="hidden" name="id" value="<?php echo $user->id ?>">
+                                <input type="submit" name="delete" class="remove-user delete-button" value="Delete">
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -41,8 +44,8 @@
                             <p class="card-data-field"><span>Price: </span><?php echo $product->price ?></p>
                         </div>
                         <div class="card-actions">
-                            <a href="/api/products/delete" class="remove-product delete-button">Delete</a>
                             <a href="/admin/products/update" class="update-product button">Update</a>
+                            <a href="/api/products/delete" class="remove-product delete-button">Delete</a>
                         </div>
                     </div>
                 </div>

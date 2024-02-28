@@ -14,9 +14,9 @@ class LoginController
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $auth = new User($_POST);
-
+            
             $alerts = $auth->validateLogin();
-
+            
             if (empty($alerts)) {
                 $user = User::where('email', $auth->email);
                 if ($user) {
@@ -27,6 +27,7 @@ class LoginController
                         $_SESSION['surname'] = $user->surname;
                         $_SESSION['email'] = $user->email;
                         $_SESSION['phone'] = $user->phone;
+                        $_SESSION['admin'] = $user->admin;
                         
                         header('Location: /');
                     }
@@ -35,7 +36,7 @@ class LoginController
                 }
             }
         }
-
+        
         $alerts = User::getAlerts();
         $router->render('auth/login', [
             'alerts' => $alerts

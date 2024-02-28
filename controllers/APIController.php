@@ -74,7 +74,18 @@ class APIController
         $user = User::find($_SESSION['id']);
 
         $result = $user->deleteUserImage();
-    
+
         json_encode($result);
+    }
+    public static function deleteUser()
+    {
+        header(static::$headerJSON);
+
+        session_start();
+
+        $id = $_POST['id'];
+        $user = User::find($id);
+        $user->delete($id);
+        header('Location: /admin');
     }
 }
