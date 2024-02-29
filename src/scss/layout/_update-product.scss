@@ -1,0 +1,51 @@
+@use '../base/variables' as v;
+
+.product-form {
+  height: 110vh;
+  display: flex;
+  background-image: url('../img/login-bg.webp');
+  background-position: center;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+
+  position: relative;
+  .form {
+    padding: 20px;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: #000;
+    opacity: 0.4;
+    z-index: 0;
+  }
+  .product-image {
+    width: 35%;
+    object-fit: cover;
+  }
+  textarea {
+    border: none;
+    width: 100%;
+    height: 75px;
+    resize: none;
+    border-radius: 5px;
+    padding: 10px;
+  }
+  input[type='file'] {
+    background: darken(v.$secondary, 10);
+    color: v.$background;
+    font-weight: bold;
+
+    &::file-selector-button {
+      border-radius: 10px;
+      border: none;
+      padding: 10px;
+      margin-right: 25px;
+    }
+  }
+}

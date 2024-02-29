@@ -23,4 +23,19 @@ class Products extends ActiveRecord
         $this->price = $args['price'] ?? '';
         $this->image = $args['image'] ?? '';
     }
+
+    public function validateProduct()
+    {
+        if (!$this->name) {
+            static::$errors['error'][] = 'You must write a name for the product';
+        }
+        if (!$this->description) {
+            static::$errors['error'][] = 'You must write a description for the product';
+        }
+        if (!$this->price || !is_numeric($this->price)) {
+            static::$errors['error'][] = 'You must write a valid price';
+        }
+
+        return static::$errors;
+    }
 }

@@ -26,4 +26,37 @@ class AdminController
             'user' => $user
         ]);
     }
+    public static function updateProduct(Router $router)
+    {
+        $id = $_GET['id'];
+        $product = Products::find($id);
+        $alerts = '';
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $product->sync($_POST);
+
+            $alerts = $product->validateProduct();
+
+            if ($_FILES['image']['tmp_name']) {
+                $imageName = md5($product->image);
+                $product->deleteImage('image', 'build/img/products');
+                $product->saveImage('build/img/products', $imageName, 'image', 'image');
+            }
+
+            $result = '';
+            if (empty($alerts)) {
+                $result = $product->save();
+            }
+
+            if ($result) {
+                header('Location: /admin');
+            }
+        }
+        
+        $alerts = Products::getAlerts();
+        $router->render('admin/product-form', [
+            'product' => $product,
+            'alerts' => $alerts
+        ]);
+    }
 }

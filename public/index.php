@@ -33,6 +33,8 @@ $router->post('/edit-profile', [AccountController::class, 'editProfile']);
 
 /*======> ADMIN PANEL <======*/
 $router->get('/admin', [AdminController::class, 'index']);
+$router->get('/admin/products/update', [AdminController::class, 'updateProduct']);
+$router->post('/admin/products/update', [AdminController::class, 'updateProduct']);
 
 /*======> API <======*/
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);

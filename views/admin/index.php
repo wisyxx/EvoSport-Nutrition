@@ -42,7 +42,7 @@
                             <p class="card-data-field"><span>Price: </span><?php echo $product->price ?></p>
                         </div>
                         <div class="card-actions">
-                            <a href="/admin/products/update" class="update-product button">Update</a>
+                            <a href="/admin/products/update?id=<?php echo $product->id ?>" class="update-product button">Update</a>
                             <a href="/api/products/delete" class="remove-product delete-button">Delete</a>
                         </div>
                     </div>

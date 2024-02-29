@@ -73,7 +73,7 @@ class APIController
 
         $user = User::find($_SESSION['id']);
 
-        $result = $user->deleteUserImage();
+        $result = $user->deleteImage('profileImage', 'build/img/users');
 
         json_encode($result);
     }
@@ -84,6 +84,7 @@ class APIController
 
         $id = $_POST['id'];
         $user = User::find($id);
+        $user->deleteImage('profileImage', 'build/img/users');
         $result = $user->delete($id);
 
         echo json_encode(['result' => $result]);

@@ -33,5 +33,5 @@ class ProductsController
             'user' => $user,
             'product' => $product
         ]);
-    }
+    }    
 }

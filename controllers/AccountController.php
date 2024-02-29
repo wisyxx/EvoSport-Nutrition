@@ -46,15 +46,11 @@ class AccountController
             if ($_FILES['profile-img']['tmp_name']) {
                 $imageName = md5($_FILES['profile-img']['tmp_name']);
 
-                $user->deleteUserImage(); // remove last image from file system
+                // remove last image from file system
+                $user->deleteImage('profileImage', 'build/img/users');
 
                 // create new manager instance with desired driver
-                $manager = new ImageManager(Driver::class);
-                $image = $manager->read($_FILES['profile-img']['tmp_name']); // reading image
-                $image->toWebp()->save("build/img/users/$imageName.webp"); // saving file
-
-                // Assign name to user property
-                $user->profileImage = $imageName . '.webp';
+                $user->saveImage('build/img/users', $imageName, 'profileImage', 'profile-img');
             }
 
             if (empty($alerts)) {

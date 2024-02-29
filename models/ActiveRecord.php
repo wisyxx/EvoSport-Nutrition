@@ -2,6 +2,9 @@
 
 namespace Models;
 
+use Intervention\Image\ImageManager;
+use Intervention\Image\Drivers\Gd\Driver;
+
 class ActiveRecord
 {
     protected static $db;
@@ -15,14 +18,22 @@ class ActiveRecord
     }
 
     /*======> IMAGES <======*/
-    public function deleteUserImage()
+    public function saveImage(string $folder, string $imageName, string $imgPropName, string $arrKey)
+    {
+        $manager = new ImageManager(Driver::class);
+        $image = $manager->read($_FILES["$arrKey"]['tmp_name']); // reading image
+        $image->toWebp()->save("$folder/$imageName.webp"); // saving file
+
+        $this->$imgPropName = $imageName . '.webp';
+    }
+    public function deleteImage(string $imgPropName, string $folder)
     {
         /* !!! -> if you set the image before calling this method it will not change 
         bc after setting the new image this method deletes it */
 
-        if ($this->profileImage) {
-            unlink('build/img/users/' . $this->profileImage);
-            $this->profileImage = '';
+        if ($this->$imgPropName) {
+            unlink("$folder/" . $this->$imgPropName);
+            $this->$imgPropName = '';
             $this->save(); // save new image value
         } else {
             return;
