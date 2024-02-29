@@ -107,4 +107,17 @@ class APIController
         $result = $user->save();
         echo json_encode(['result' => $result]);
     }
+    public static function deleteProduct()
+    {
+        header(static::$headerJSON);
+
+        session_start();
+
+        $id = $_POST['id'];
+        $product = Products::find($id);
+        $product->deleteImage('image', 'build/img/products');
+        $result = $product->delete($id);
+
+        echo json_encode(['result' => $result]);
+    }
 }

@@ -5,6 +5,7 @@ window.addEventListener('DOMContentLoaded', () => {
 function startApp() {
   deleteUserButton();
   setAdminButton();
+  deleteProductButton();
 }
 function deleteUserButton() {
   const deleteUserBtn = document.querySelectorAll('.remove-user');
@@ -24,7 +25,15 @@ function setAdminButton() {
     });
   });
 }
+function deleteProductButton() {
+  const deleteProductBtn = document.querySelectorAll('.remove-product');
 
+  deleteProductBtn.forEach((btn) => {
+    btn.addEventListener('click', (e) => {
+      deleteProduct(e.target.dataset.productid);
+    });
+  });
+}
 
 async function deleteUser(userId) {
   const data = new FormData();
@@ -55,7 +64,6 @@ async function deleteUser(userId) {
     });
   }
 }
-
 async function setAdmin(userId) {
   const data = new FormData();
 
@@ -69,6 +77,36 @@ async function setAdmin(userId) {
 
     Swal.fire({
       title: 'Admin status changed!',
+      icon: 'success',
+      confirmButtonText: 'Ok',
+      confirmButtonColor: '#a1f25f',
+    }).then(() => {
+      location.reload();
+    });
+  } catch (error) {
+    Swal.fire({
+      title: 'Something went wrong...',
+      text: 'Try again later',
+      icon: 'error',
+    }).then(() => {
+      location.reload();
+    });
+  }
+}
+
+async function deleteProduct(productId) {
+  const data = new FormData();
+
+  data.append('id', productId);
+
+  try {
+    const result = await fetch('http://localhost:3000/api/products/delete', {
+      method: 'POST',
+      body: data,
+    });
+
+    Swal.fire({
+      title: 'Product deleted!',
       icon: 'success',
       confirmButtonText: 'Ok',
       confirmButtonColor: '#a1f25f',

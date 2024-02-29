@@ -44,7 +44,7 @@
                         </div>
                         <div class="card-actions">
                             <a href="/admin/products/update?id=<?php echo $product->id ?>" class="update-product button">Update</a>
-                            <a href="/api/products/delete" class="remove-product delete-button">Delete</a>
+                            <input data-productid="<?php echo $product->id ?>" type="button" class="remove-product delete-button" value="Delete">
                         </div>
                     </div>
                 </div>

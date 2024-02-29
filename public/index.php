@@ -47,5 +47,6 @@ $router->post('/api/basket/delete', [APIController::class, 'deleteProductFromBas
 $router->post('/api/images/delete-pfp', [APIController::class, 'deleteUserPfp']);
 $router->post('/api/users/delete', [APIController::class, 'deleteUser']);
 $router->post('/api/users/set-admin', [APIController::class, 'setAdmin']);
+$router->post('/api/products/delete', [APIController::class, 'deleteProduct']);
 
 $router->checkRoutes();
