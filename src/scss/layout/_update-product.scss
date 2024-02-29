@@ -28,14 +28,7 @@
     width: 35%;
     object-fit: cover;
   }
-  textarea {
-    border: none;
-    width: 100%;
-    height: 75px;
-    resize: none;
-    border-radius: 5px;
-    padding: 10px;
-  }
+  
   input[type='file'] {
     background: darken(v.$secondary, 10);
     color: v.$background;

@@ -14,6 +14,7 @@ $router = new Router();
 
 /*======> LANDIG PAGE <======*/
 $router->get('/', [LandingPageController::class, 'index']);
+$router->get('/contact', [LandingPageController::class, 'contact']);
 
 /*======> PRODUCTS <======*/
 $router->get('/products', [ProductsController::class, 'index']);

@@ -18,4 +18,14 @@ class LandingPageController extends ActiveRecord
             'user' => $user
         ]);
     }
+    public static function contact(Router $router)
+    {
+        session_start();
+
+        $user = createUserReference();
+
+        $router->render('home/contact-form', [
+            'user' => $user
+        ]);
+    }
 }
