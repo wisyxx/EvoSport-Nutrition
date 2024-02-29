@@ -74,11 +74,11 @@
 .panel-card {
   padding: 10px;
   display: flex;
+  flex-wrap: wrap;
   flex-direction: column;
   text-align: center;
   align-items: center;
   gap: 25px;
-  margin-bottom: 25px;
   border-bottom: 3px v.$secondary solid;
   @include m.small-desktop {
     text-align: start;
@@ -97,16 +97,11 @@
 .card-actions {
   display: flex;
   flex-direction: column;
-  justify-content: space-around;
   gap: 10px;
-  margin: 15px 0 10px 0;
+  margin: 15px 0 15px 0;
   text-align: center;
-  .form {
-    width: 100%;
-    input {
-      width: 100%;
-      text-align: center;
-    }
+  @include m.small-desktop {
+    flex-direction: row;
   }
 }
 .card-data {

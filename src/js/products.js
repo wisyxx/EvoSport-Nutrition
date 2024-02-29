@@ -12,7 +12,7 @@ async function startApp() {
 async function loadProducts(page = 1) {
   const productsResult = await fetchAPI(
     // PHP: Controllers/APIController::productsAPI();
-    `http://localhost:3000/api/products?page=${page}`
+    `${location.origin}/api/products?page=${page}`
   );
   const { products, productsCount: totalCount } = productsResult;
   const productsContainer = document.querySelector('.products');

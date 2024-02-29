@@ -26,7 +26,7 @@ async function deleteProfileImage() {
 
 async function deletePfpImageAPI() {
   try {
-    const result = await fetch('http://localhost:3000/api/images/delete-pfp', {
+    const result = await fetch(`${location.origin}/api/images/delete-pfp`, {
       method: 'POST',
     });
 
@@ -37,7 +37,7 @@ async function deletePfpImageAPI() {
         confirmButtonText: 'Ok',
         confirmButtonColor: '#a1f25f',
       }).then(() => {
-        location = 'http://localhost:3000/account';
+        location = `${location.origin}/account`;
       });
     }
   } catch (error) {

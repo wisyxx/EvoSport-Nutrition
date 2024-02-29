@@ -42,7 +42,7 @@ async function addProductToBasket() {
       confirmButtonColor: '#a1f25f',
     }).then((result) => {
       if (result.isConfirmed) {
-        location = 'http://localhost:3000/login';
+        location = `${location.origin}/login`;
       }
     });
 
@@ -52,7 +52,7 @@ async function addProductToBasket() {
   data.append('productId', productId);
 
   try {
-    const response = await fetch('http://localhost:3000/api/basket', {
+    const response = await fetch(`${location.origin}/api/basket`, {
       method: 'POST',
       body: data,
     });
@@ -84,7 +84,7 @@ async function addProductToBasket() {
       },
     }).then((result) => {
       if (result.isConfirmed) {
-        location = 'http://localhost:3000/account#shopping-basket';
+        location = `${location.origin}/account#shopping-basket`;
       }
     });
   } catch (error) {
@@ -107,7 +107,7 @@ async function removeProductFromBasket() {
   data.append('id', basketItemId);
 
   try {
-    const response = await fetch('http://localhost:3000/api/basket/delete', {
+    const response = await fetch(`${location.origin}/api/basket/delete`, {
       method: 'POST',
       body: data,
     });

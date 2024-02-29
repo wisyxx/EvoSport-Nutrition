@@ -41,7 +41,7 @@ async function deleteUser(userId) {
   data.append('id', userId);
 
   try {
-    const result = await fetch('http://localhost:3000/api/users/delete', {
+    const result = await fetch(`${location.origin}/api/users/delete`, {
       method: 'POST',
       body: data,
     });
@@ -70,7 +70,7 @@ async function setAdmin(userId) {
   data.append('id', userId);
 
   try {
-    const result = await fetch('http://localhost:3000/api/users/set-admin', {
+    const result = await fetch(`${location.origin}/api/users/set-admin`, {
       method: 'POST',
       body: data,
     });
@@ -100,7 +100,7 @@ async function deleteProduct(productId) {
   data.append('id', productId);
 
   try {
-    const result = await fetch('http://localhost:3000/api/products/delete', {
+    const result = await fetch(`${location.origin}/api/products/delete`, {
       method: 'POST',
       body: data,
     });

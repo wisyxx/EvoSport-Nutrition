@@ -14,7 +14,7 @@ async function startApp() {
 
 /*======> AD SLIDE SHOW <======*/
 async function getAdImages() {
-  const imageFiles = await fetchAPI('http://localhost:3000/api/ad-images');
+  const imageFiles = await fetchAPI(`/api/ad-images`);
   let imagesNames = [];
 
   if (imagesNames.length !== 0) {
@@ -68,7 +68,7 @@ function startImageRotation(images) {
 
 /* Popular products */
 async function loadPopularProducts() {
-  const products = await fetchAPI('http://localhost:3000/api/popular-products');
+  const products = await fetchAPI(`/api/popular-products`);
 
   const productsContainer = document.querySelector('.popular-products-slider');
 
