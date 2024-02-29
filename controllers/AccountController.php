@@ -19,7 +19,7 @@ class AccountController
         if (empty($_SESSION)) {
             header('Location: /');
         }
-        // TO-DO: Add functionality to load shopping basket products
+
         $shoppingBasket = new Basket;
         $query = "SELECT usersproducts.id, products.name, products.image, products.price, ";
         $query .= "products.id as 'productId' FROM products ";

@@ -88,4 +88,22 @@ class APIController
 
         echo json_encode(['result' => $result]);
     }
+    public static function setAdmin()
+    {
+        header(static::$headerJSON);
+
+        session_start();
+
+        $id = $_POST['id'];
+        $user = User::find($id);
+
+        if ($user->admin === '0') {
+            $user->admin = 1;
+        } else {
+            $user->admin = 0;
+        }
+
+        $result = $user->save();
+        echo json_encode(['result' => $result]);
+    }
 }

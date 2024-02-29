@@ -18,7 +18,7 @@
                             <p class="card-data-field"><span>Phone: </span><?php echo $user->phone ?></p>
                         </div>
                         <div class="card-actions">
-                            <input data-userid="<?php echo $user->id ?>" type="button" class="set-admin button" value="Set admin">
+                            <input data-userid="<?php echo $user->id ?>" type="button" class="set-admin button" value="<?php echo $user->admin === '0' ? 'Set admin' : 'Remove admin' ?>">
                             <input data-userid="<?php echo $user->id ?>" type="button" name="delete" class="remove-user delete-button" value="Delete">
                         </div>
                     </div>
