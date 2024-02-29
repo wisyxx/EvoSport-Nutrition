@@ -19,9 +19,14 @@
         <img loading="lazy" src="build/img/EvoSportLogo.svg" alt="Companie logo">
     </a>
     <div class="actions">
-        <a href="/account#shopping-basket">
-            <img loading="lazy" class="header__logo" src="build/img/shopping-basket.svg" alt="Shopping basket logo button">
-        </a>
+        <?php if (!empty($_SESSION)) : ?>
+            <a href="/account#shopping-basket">
+                <img loading="lazy" class="header__logo" src="build/img/shopping-basket.svg" alt="Shopping basket logo button">
+            </a>
+            <?php if ($_SESSION['admin'] == 1) : ?>
+                <a class="button" href="/admin" class="drop-menu__link">Admin panel</a>
+            <?php endif; ?>
+        <?php endif; ?>
         <?php if (!empty($_SESSION['name'])) : ?>
             <a href="/account">
                 <?php

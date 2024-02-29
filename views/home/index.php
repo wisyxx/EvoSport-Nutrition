@@ -75,6 +75,18 @@
         <img loading="lazy" src="build/img/EvoSportLogo.svg" alt="Companie logo">
     </a>
 
+    <div class="footer-content">
+        <nav class="footer__nav">
+            <h3 class="nav__title">Links</h3>
+            <a href="/products">Products</a>
+            <a href="/contact">Contact</a>
+        </nav>
+        <div class="companie-info">
+            <h3>Other info</h3>
+            <p><span>Phone:</span> 000-000-000</p>
+            <p><span>Email:</span> suport@evosport.es</p>
+        </div>
+    </div>
     <p>All rights reserved EvoSport Nutrition 2024 &#169;</p>
 </footer>
 
