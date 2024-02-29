@@ -29,7 +29,7 @@
         <aside class="products-panel admin-panels__panel">
             <div class="products-panel__heading">
                 <h2 class="panel-title">Products</h2>
-                <a href="/new-product" class="button">New product</a>
+                <a href="/admin/products/create" class="button">New product</a>
             </div>
 
             <?php foreach ($products as $product) : ?>
@@ -39,7 +39,7 @@
                         <div class="card-data">
                             <p class="card-data-field"><span>ID: </span><?php echo $product->id ?></p>
                             <p class="card-data-field"><span>Name: </span><?php echo $product->name ?></p>
-                            <p class="card-data-field"><span>Price: </span><?php echo $product->price ?></p>
+                            <p class="card-data-field"><span>Price: </span><?php echo $product->price ?>€</p>
                         </div>
                         <div class="card-actions">
                             <a href="/admin/products/update?id=<?php echo $product->id ?>" class="update-product button">Update</a>

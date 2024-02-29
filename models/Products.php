@@ -38,4 +38,21 @@ class Products extends ActiveRecord
 
         return static::$errors;
     }
+    public function validateNewProduct()
+    {
+        if (!$this->name) {
+            static::$errors['error'][] = 'You must write a name for the product';
+        }
+        if (!$this->description) {
+            static::$errors['error'][] = 'You must write a description for the product';
+        }
+        if (!$this->price || !is_numeric($this->price)) {
+            static::$errors['error'][] = 'You must write a valid price';
+        }
+        if (!$_FILES['image']['tmp_name']) {
+            static::$errors['error'][] = 'You must upload an image';
+        }
+
+        return static::$errors;
+    }
 }

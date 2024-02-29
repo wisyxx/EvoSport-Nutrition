@@ -35,6 +35,8 @@ $router->post('/edit-profile', [AccountController::class, 'editProfile']);
 $router->get('/admin', [AdminController::class, 'index']);
 $router->get('/admin/products/update', [AdminController::class, 'updateProduct']);
 $router->post('/admin/products/update', [AdminController::class, 'updateProduct']);
+$router->get('/admin/products/create', [AdminController::class, 'createProduct']);
+$router->post('/admin/products/create', [AdminController::class, 'createProduct']);
 
 /*======> API <======*/
 $router->get('/api/ad-images', [APIController::class, 'imagesAPI']);

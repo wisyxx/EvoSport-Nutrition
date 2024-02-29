@@ -30,7 +30,6 @@ class AdminController
     {
         $id = $_GET['id'];
         $product = Products::find($id);
-        $alerts = '';
 
         if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $product->sync($_POST);
@@ -52,9 +51,38 @@ class AdminController
                 header('Location: /admin');
             }
         }
-        
+
         $alerts = Products::getAlerts();
-        $router->render('admin/product-form', [
+        $router->render('admin/update-product', [
+            'product' => $product,
+            'alerts' => $alerts
+        ]);
+    }
+    public static function createProduct(Router $router)
+    {
+        $product = new Products();
+
+        if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+            $product->sync($_POST);
+
+            $alerts = $product->validateNewProduct();
+
+            $result = '';
+            if (empty($alerts)) {
+                if ($_FILES['image']['tmp_name']) {
+                    $imageName = md5($product->image);
+                    $product->saveImage('build/img/products', $imageName, 'image', 'image');
+                }
+                $result = $product->save();
+            }
+
+            if ($result) {
+                header('Location: /admin');
+            }
+        }
+
+        $alerts = Products::getAlerts();
+        $router->render('admin/create-product', [
             'product' => $product,
             'alerts' => $alerts
         ]);
