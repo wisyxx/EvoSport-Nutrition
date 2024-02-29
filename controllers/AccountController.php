@@ -14,6 +14,10 @@ class AccountController
     {
         session_start();
 
+        if (empty($_SESSION)) {
+            header('Location: /');
+        }
+
         $user = User::find($_SESSION['id']);
 
         if (empty($_SESSION)) {
@@ -36,6 +40,10 @@ class AccountController
     public static function editProfile(Router $router)
     {
         session_start();
+
+        if (empty($_SESSION)) {
+            header('Location: /');
+        }
 
         $user = User::find($_SESSION['id']);
 

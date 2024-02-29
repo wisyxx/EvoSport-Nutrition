@@ -12,7 +12,7 @@ class ProductsController
     {
         session_start();
 
-        $user = User::find($_SESSION['id']);
+        $user = createUserReference();
 
         $router->render('products/index', [
             'user' => $user
@@ -23,7 +23,7 @@ class ProductsController
     {
         session_start();
 
-        $user = User::find($_SESSION['id']);
+        $user = createUserReference();
 
         $id = $_GET['id'];
 
