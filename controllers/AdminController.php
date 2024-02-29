@@ -16,14 +16,14 @@ class AdminController
             header('Location: /');
         }
 
-        $user = User::find($_SESSION['id']);
+        // $user = User::find($_SESSION['id']);
         $users = User::all();
         $products = Products::all();
 
         $router->render('admin/index', [
             'users' => $users,
             'products' => $products,
-            'user' => $user
+            // 'user' => $user
         ]);
     }
     public static function updateProduct(Router $router)

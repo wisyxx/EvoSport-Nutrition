@@ -2,6 +2,9 @@
 @use '../base/mixins' as m;
 
 .admin-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   height: 150vh;
   padding: 25px;
   @include m.tablet {
@@ -9,7 +12,13 @@
   }
 }
 .admin-page__title {
-  margin: 0 0 10px 0;
+  h1 {
+    margin: 0;
+  }
+
+  display: flex;
+  align-items: center;
+  gap: 20px;
 }
 
 .admin-panels {
@@ -19,7 +28,7 @@
   align-items: center;
   gap: 50px;
   height: 90%;
-  padding: 40px;
+  padding: 20px;
 
   @include m.small-desktop {
     flex-direction: row;

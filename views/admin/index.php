@@ -1,7 +1,8 @@
-<?php include_once __DIR__ . '/../templates/header.php' ?>
 <main class="admin-page">
-    <h1 class="admin-page__title">Admin panel</h1>
-    <a class="admin-page__home-button" href="/">Home page</a>
+    <div class="admin-page__title">
+        <h1>Admin panel</h1>
+        <a class="admin-page__home-button" href="/">Home page</a>
+    </div>
     <section class="admin-panels">
         <aside class="users-panel admin-panels__panel">
             <div class="products-panel__heading">
@@ -53,7 +54,6 @@
 </main>
 
 <?php
-$script = '<script type="module" src="build/js/app.js"></script>';
-$script .= '<script type="module" src="build/js/adminPanel.js"></script>';
+$script = '<script type="module" src="build/js/adminPanel.js"></script>';
 $script .= '<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>';
 ?>
