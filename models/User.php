@@ -56,6 +56,8 @@ class User extends ActiveRecord
         if (!$this->email) {
             static::$errors['error'][] = 'You must write your email';
         }
+
+        return static::$errors;
     }
     public function validateEditProfile()
     {

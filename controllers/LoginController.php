@@ -51,7 +51,7 @@ class LoginController
             $user->sync($_POST); // Sync $_POST data so the user dont have to rewrite all
 
             $alerts = $user->validateRegistration();
-
+            
             if (empty($alerts)) {
                 $user->sync($_POST);
 

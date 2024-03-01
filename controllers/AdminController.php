@@ -66,11 +66,11 @@ class AdminController
             $product->sync($_POST);
 
             $alerts = $product->validateNewProduct();
-
+            
             $result = '';
             if (empty($alerts)) {
                 if ($_FILES['image']['tmp_name']) {
-                    $imageName = md5($product->image);
+                    $imageName = md5($product->name);
                     $product->saveImage('build/img/products', $imageName, 'image', 'image');
                 }
                 $result = $product->save();
