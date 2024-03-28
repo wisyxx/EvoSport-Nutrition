@@ -5,7 +5,7 @@
     include  __DIR__ . '/../templates/profile-image.php';
     ?>
     <div class="user-info">
-        <h1>Hello, <?php echo $_SESSION['name'] . ' ' . $_SESSION['surname']; ?>!</h1>
+        <h1>Hello, <?php echo $user->name . ' ' . $user->surname ?>!</h1>
         <div class="actions">
             <a href="/edit-profile" class="button edit-profile">Edit profile</a>
             <a href="/logout" class="button logout">Log out</a>
