@@ -12,7 +12,7 @@ EvoSport Nutrition is a full-stack E-Commerce store specializing in sports goods
 
 
 ## Screenshots
-<img src="screenshots/landing-page-desktop.png" width="770px" height="auto"> <img src="screenshots/landing-page-mobile.png" width="200px" height="auto">
+<img src="screenshots/landing-page-desktop.png" width="770px" height="auto"> <img src="screenshots/user-page.png" width="200px" height="auto">
 
 
 ## API Reference
