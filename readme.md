@@ -40,6 +40,14 @@ Install dev dependencies
 ```bash
   npm install -D
 ```
+Please create a .env file in the folder "/includes" with the following variables:
+
+```env
+  DB_HOST = your_host
+  DB_PASS = your_password
+  DB_SCHEMA = your_schema
+  DB_USER = your_user
+```
 
 Set up composer
 
