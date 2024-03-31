@@ -8,7 +8,7 @@
 
 # EvoSport Nutrition
 
-EvoSport Nutrition is a full-stack E-Commerce store specializing in sports goods and supplements, featuring an intuitive interface to enhance the shopping experience.
+EvoSport Nutrition is an E-Commerce platform specializing in sports goods and supplements. It aims to provide users with a straightforward shopping experience, featuring an intuitive interface for easy navigation and access to a diverse range of products catering to various fitness needs.
 
 
 ## Screenshots
